@@ -210,6 +210,13 @@
                     </a>
                 </li>
             </ul>
+            <div  style="display: flex;justify-content: center">
+                <a href="/database-reset" class="link">
+                    <button th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}" class="btn-danger">
+                        Reset data
+                    </button>
+                </a>
+            </div>
         </nav>
         <!-- End Sidebar navigation -->
     </div>
