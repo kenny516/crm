@@ -45,9 +45,11 @@ public class CustomerController {
     private final LeadService leadService;
 
     @Autowired
-    public CustomerController(CustomerService customerService, UserService userService, CustomerLoginInfoService customerLoginInfoService,
-                              AuthenticationUtils authenticationUtils, GoogleGmailApiService googleGmailApiService, Environment environment,
-                              TicketService ticketService, ContractService contractService, LeadService leadService) {
+    public CustomerController(CustomerService customerService, UserService userService,
+            CustomerLoginInfoService customerLoginInfoService,
+            AuthenticationUtils authenticationUtils, GoogleGmailApiService googleGmailApiService,
+            Environment environment,
+            TicketService ticketService, ContractService contractService, LeadService leadService) {
         this.customerService = customerService;
         this.userService = userService;
         this.customerLoginInfoService = customerLoginInfoService;
@@ -60,64 +62,64 @@ public class CustomerController {
     }
 
     @GetMapping("/manager/all-customers")
-    public String getAllCustomers(Model model){
+    public String getAllCustomers(Model model) {
         List<Customer> customers;
         try {
             customers = customerService.findAll();
-        } catch (Exception e){
+        } catch (Exception e) {
             return "error/500";
         }
-        model.addAttribute("customers",customers);
+        model.addAttribute("customers", customers);
         return "customer/all-customers";
     }
 
     @GetMapping("/my-customers")
-    public String getEmployeeCustomer(Model model, Authentication authentication){
+    public String getEmployeeCustomer(Model model, Authentication authentication) {
         List<Customer> customers;
 
         int userId = authenticationUtils.getLoggedInUserId(authentication);
-        if(userId == -1) {
+        if (userId == -1) {
             return "error/not-found";
         }
         customers = customerService.findByUserId(userId);
-        model.addAttribute("customers",customers);
+        model.addAttribute("customers", customers);
         return "customer/all-customers";
     }
 
     @GetMapping("/{id}")
     public String showCustomerDetail(@PathVariable("id") int id, Model model, Authentication authentication) {
         Customer customer = customerService.findByCustomerId(id);
-        if(customer == null) {
+        if (customer == null) {
             return "error/not-found";
         }
 
         User employee = customer.getUser();
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User loggedInUser = userService.findById(userId);
-        if(loggedInUser.isInactiveUser()) {
+        if (loggedInUser.isInactiveUser()) {
             return "error/account-inactive";
         }
-        if(!AuthorizationUtil.checkIfUserAuthorized(employee,loggedInUser)) {
+        if (!AuthorizationUtil.checkIfUserAuthorized(employee, loggedInUser)) {
             return "redirect:/access-denied";
         }
 
-        model.addAttribute("customer",customer);
+        model.addAttribute("customer", customer);
         return "customer/customer-details";
     }
 
     @GetMapping("/create-customer")
-    public String showCreateCustomerForm(Model model, Authentication authentication){
+    public String showCreateCustomerForm(Model model, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User user = userService.findById(userId);
-        if(user.isInactiveUser()) {
+        if (user.isInactiveUser()) {
             return "error/account-inactive";
         }
         boolean hasGoogleGmailAccess = false;
         boolean isGoogleUser = false;
-        if(!(authentication instanceof UsernamePasswordAuthenticationToken)) {
+        if (!(authentication instanceof UsernamePasswordAuthenticationToken)) {
             isGoogleUser = true;
             OAuthUser oAuthUser = authenticationUtils.getOAuthUserFromAuthentication(authentication);
-            if(oAuthUser.getGrantedScopes().contains(GoogleAccessService.SCOPE_GMAIL)){
+            if (oAuthUser.getGrantedScopes().contains(GoogleAccessService.SCOPE_GMAIL)) {
                 hasGoogleGmailAccess = true;
             }
         }
@@ -129,16 +131,18 @@ public class CustomerController {
     }
 
     @PostMapping("/create-customer")
-    public String createNewCustomer(@ModelAttribute("customer") @Validated Customer customer, BindingResult bindingResult,
-                                    Authentication authentication, @RequestParam(value = "SendEmail", defaultValue = "false") boolean sendEmail, Model model) {
+    public String createNewCustomer(@ModelAttribute("customer") @Validated Customer customer,
+            BindingResult bindingResult,
+            Authentication authentication, @RequestParam(value = "SendEmail", defaultValue = "false") boolean sendEmail,
+            Model model) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             boolean hasGoogleGmailAccess = false;
             boolean isGoogleUser = false;
-            if(!(authentication instanceof UsernamePasswordAuthenticationToken)) {
+            if (!(authentication instanceof UsernamePasswordAuthenticationToken)) {
                 isGoogleUser = true;
                 OAuthUser oAuthUser = authenticationUtils.getOAuthUserFromAuthentication(authentication);
-                if(oAuthUser.getGrantedScopes().contains(GoogleAccessService.SCOPE_GMAIL)){
+                if (oAuthUser.getGrantedScopes().contains(GoogleAccessService.SCOPE_GMAIL)) {
                     hasGoogleGmailAccess = true;
                 }
             }
@@ -149,7 +153,7 @@ public class CustomerController {
 
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User user = userService.findById(userId);
-        if(user.isInactiveUser()) {
+        if (user.isInactiveUser()) {
             return "error/account-inactive";
         }
         customer.setUser(user);
@@ -166,27 +170,30 @@ public class CustomerController {
         Customer createdCustomer = customerService.save(customer);
         customerLoginInfo1.setCustomer(createdCustomer);
 
-        if (!(authentication instanceof UsernamePasswordAuthenticationToken) && sendEmail && googleGmailApiService != null) {
+        if (!(authentication instanceof UsernamePasswordAuthenticationToken) && sendEmail
+                && googleGmailApiService != null) {
             OAuthUser oAuthUser = authenticationUtils.getOAuthUserFromAuthentication(authentication);
             String baseUrl = environment.getProperty("app.base-url");
             String url = baseUrl + "set-password?token=" + customerLoginInfo.getToken();
-            EmailTokenUtils.sendRegistrationEmail(customerLoginInfo1.getEmail(), customer.getName(), url, oAuthUser, googleGmailApiService);
+            EmailTokenUtils.sendRegistrationEmail(customerLoginInfo1.getEmail(), customer.getName(), url, oAuthUser,
+                    googleGmailApiService);
         }
         return "redirect:/employee/customer/my-customers";
     }
 
     @PostMapping("/delete-customer/{id}")
     @Transactional
-    public String deleteCustomer(@ModelAttribute("customer") Customer tempCustomer, BindingResult bindingResult ,@PathVariable("id") int id,
-                                 Authentication authentication, RedirectAttributes redirectAttributes) {
+    public String deleteCustomer(@ModelAttribute("customer") Customer tempCustomer, BindingResult bindingResult,
+            @PathVariable("id") int id,
+            Authentication authentication, RedirectAttributes redirectAttributes) {
         Customer customer;
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User user = userService.findById(userId);
-        if(user.isInactiveUser()) {
+        if (user.isInactiveUser()) {
             return "error/account-inactive";
         }
         try {
-            if(!AuthorizationUtil.hasRole(authentication,"ROLE_MANAGER")) {
+            if (!AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
                 bindingResult.rejectValue("failedErrorMessage", "error.failedErrorMessage",
                         "Sorry, you are not authorized to delete this customer. Only administrators have permission to delete customers.");
                 redirectAttributes.addFlashAttribute("bindingResult", bindingResult);
@@ -203,11 +210,10 @@ public class CustomerController {
             customerLoginInfoService.delete(customerLoginInfo);
             customerService.delete(customer);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             return "error/500";
         }
         return "redirect:/employee/customer/my-customers";
     }
-
 
 }
