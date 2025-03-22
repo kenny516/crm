@@ -58,6 +58,8 @@ public class GoogleCalendarApiServiceImpl implements GoogleCalendarApiService {
 
         // Convert Event objects to EventDisplay objects
         List<EventDisplay> eventDisplays = eventList.getItems().stream()
+                ///  i touch it
+                .filter(event -> event.getStart().getDateTime() !=null && event.getEnd().getDateTime() !=null)
                 .map(event -> {
                     EventDateTime start = event.getStart();
                     EventDateTime end = event.getEnd();

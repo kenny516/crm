@@ -210,6 +210,29 @@
                     </a>
                 </li>
             </ul>
+            <div style="padding-top: 20px; display: flex; justify-content: center;">
+                <div style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); text-align: center; max-width: 400px; width: 100%;">
+
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+                            <a href="/database/generate" class="link">
+                                <button style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">Generate Data</button>
+                            </a>
+                        </div>
+                        <div th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+                            <a href="/database/import" class="link">
+                                <button style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">Import Data</button>
+                            </a>
+                        </div>
+                        <div th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+                            <a href="/database/reset" class="link">
+                                <button style="width: 100%; padding: 10px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">Reset Data</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </nav>
         <!-- End Sidebar navigation -->
     </div>
