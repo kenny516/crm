@@ -31,13 +31,11 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
 
     @Query(value = """
             SELECT
-                    SUM(b.amount),
-                    SUM(b.amount) - COALESCE(SUM(e.amount), 0)
+                    SUM(b.amount)
             FROM budget b
-            LEFT JOIN crm.expense e ON b.budget_id = e.budget_id
             WHERE b.customer_id = :customerId
             """, nativeQuery = true)
-    List<Object[]> getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
+    Object getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
 
 
 }

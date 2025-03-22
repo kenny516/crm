@@ -73,5 +73,30 @@ public class BudgetService {
         return budgets;
     }
 
+    public Double cumulBudget(Integer customerId) {
+        return ((BigDecimal) budgetRepository.getBudgetsAfterExpenseRawGlobal(customerId)).doubleValue();
+    }
+
+    public BudgetDTO getBudgetDTOGlobal(List<BudgetDTO> budgetDTOS) {
+        Parameter parameter = parameterService.findThresholdAlert();
+        BudgetDTO budgetDTO = new BudgetDTO();
+        budgetDTO.setInitialAmount(0.0);
+        budgetDTO.setCurrentAmount(0.0);
+        for (BudgetDTO budget : budgetDTOS) {
+            budgetDTO.setInitialAmount(budgetDTO.getInitialAmount() + budget.getInitialAmount());
+            budgetDTO.setCurrentAmount(budgetDTO.getCurrentAmount() + budget.getCurrentAmount());
+            budgetDTO.setCustomerId(budget.getCustomerId());
+        }
+        double threshold = budgetDTO.getInitialAmount() * parameter.getParameterValue() / 100;
+        if (budgetDTO.getCurrentAmount() <= threshold) {
+            budgetDTO.setStatus("Alerte budget au plafon " + parameter.getParameterValue() + " % \n " +
+                    "Budget initial : " + budgetDTO.getInitialAmount() + "\n" +
+                    "Budget Actuel :  " + budgetDTO.getCurrentAmount() + "\n");
+        } else {
+            budgetDTO.setStatus("Budget normal");
+        }
+        return budgetDTO;
+    }
+
 
 }

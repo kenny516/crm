@@ -42,13 +42,15 @@ public class ExpenseController {
             Model model) {
 
         List<BudgetDTO> budgetDTOS = new ArrayList<>();
-
+        BudgetDTO budgetDTOGlobal = new BudgetDTO();
         if (leadId != null) {
             Lead lead = leadService.findByLeadId(leadId);
             if (lead == null) {
                 return "error/not-found";
             }
             budgetDTOS = budgetService.getBudgetsAfterExpense(lead.getCustomer().getCustomerId());
+            budgetDTOGlobal = budgetService.getBudgetDTOGlobal(budgetDTOS);
+            model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
             model.addAttribute("budgetDTOS", budgetDTOS);
             model.addAttribute("leadId", leadId);
         } else if (ticketId != null) {
@@ -57,6 +59,8 @@ public class ExpenseController {
                 return "error/not-found";
             }
             budgetDTOS = budgetService.getBudgetsAfterExpense(ticket.getCustomer().getCustomerId());
+            budgetDTOGlobal = budgetService.getBudgetDTOGlobal(budgetDTOS);
+            model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
             model.addAttribute("budgetDTOS", budgetDTOS);
             model.addAttribute("ticketId", ticketId);
         } else {

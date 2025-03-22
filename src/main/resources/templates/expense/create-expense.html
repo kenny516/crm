@@ -66,6 +66,8 @@
                                 </div>
                                 <form th:object="${expense}" th:action="@{/employee/expense/create}" method="post"
                                     id="expenseForm">
+                                    <input type="hidden" th:value="${budgetDTOGlobal.currentAmount}" id="currentAmount">
+                                    <input type="hidden" th:value="${budgetDTOGlobal.status}" id="status">
                                     <input type="hidden" th:if="${ticketId != null}" name="ticketId"
                                         th:value="${ticketId}">
                                     <input type="hidden" th:if="${leadId != null}" name="leadId" th:value="${leadId}">
@@ -164,30 +166,23 @@
             const budgetSelect = document.getElementById('budget');
             const alertDiv = document.getElementById('alertMessage');
 
-            budgetSelect.addEventListener('change', function () {
-                console.log("Selected option:", this.options[this.selectedIndex].text);
-                const selectedOption = this.options[this.selectedIndex];
-                const status = selectedOption.text.split(' - ')[2];
+            const status = document.getElementById('status').value;
 
-                // Vérifier si le statut est "Alerte budget"
-                if (status && status.includes('Alerte budget')) {
-                    alertDiv.style.display = 'block';
-                } else {
-                    alertDiv.style.display = 'none';
-                }
-            });
+            if (status && status.includes('Alerte budget')) {
+                alertDiv.innerText = status;
+                alertDiv.style.display = 'block';
+            } else {
+                alertDiv.style.display = 'none';
+            }
 
             document.getElementById('expenseForm').addEventListener('submit', function (e) {
                 e.preventDefault();
-
+                const budget = parseFloat(document.getElementById('currentAmount').value);
                 const amountInput = document.getElementById('amount');
-                const selectedOption = budgetSelect.options[budgetSelect.selectedIndex];
                 const amount = parseFloat(amountInput.value);
 
-                const statusText = selectedOption.text.split(' - ');
-                const currentAmount = parseFloat(statusText[0].trim());
 
-                if (amount > currentAmount) {
+                if (amount > budget) {
                     const userConfirmed = confirm('Le montant saisi est supérieur au budget disponible. Voulez-vous vraiment continuer ?');
 
                     if (userConfirmed) {
@@ -197,6 +192,41 @@
                     this.submit();
                 }
             });
+
+
+            // budgetSelect.addEventListener('change', function () {
+            //     console.log("Selected option:", this.options[this.selectedIndex].text);
+            //     const selectedOption = this.options[this.selectedIndex];
+            //     const status = selectedOption.text.split(' - ')[2];
+            //
+            //     // Vérifier si le statut est "Alerte budget"
+            //     if (status && status.includes('Alerte budget')) {
+            //         alertDiv.style.display = 'block';
+            //     } else {
+            //         alertDiv.style.display = 'none';
+            //     }
+            // });
+
+            // document.getElementById('expenseForm').addEventListener('submit', function (e) {
+            //     e.preventDefault();
+            //
+            //     const amountInput = document.getElementById('amount');
+            //     const selectedOption = budgetSelect.options[budgetSelect.selectedIndex];
+            //     const amount = parseFloat(amountInput.value);
+            //
+            //     const statusText = selectedOption.text.split(' - ');
+            //     const currentAmount = parseFloat(statusText[0].trim());
+            //
+            //     if (amount > currentAmount) {
+            //         const userConfirmed = confirm('Le montant saisi est supérieur au budget disponible. Voulez-vous vraiment continuer ?');
+            //
+            //         if (userConfirmed) {
+            //             this.submit();
+            //         }
+            //     } else {
+            //         this.submit();
+            //     }
+            // });
         });
     </script>
 
