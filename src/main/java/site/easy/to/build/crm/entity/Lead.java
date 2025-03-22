@@ -3,6 +3,7 @@ package site.easy.to.build.crm.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import site.easy.to.build.crm.entity.Expense;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -60,12 +61,18 @@ public class Lead {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @ManyToOne
+    @JoinColumn(name = "expense_id")
+    private Expense expense;
+
     public Lead() {
     }
 
-    public Lead(String name, String status, String phone, String meetingId, Boolean googleDrive, String googleDriveFolderId,
-                List<LeadAction> leadActions, List<File> files, List<GoogleDriveFile> googleDriveFiles, User manager, User employee,
-                Customer customer, LocalDateTime createdAt) {
+    public Lead(String name, String status, String phone, String meetingId, Boolean googleDrive,
+            String googleDriveFolderId,
+            List<LeadAction> leadActions, List<File> files, List<GoogleDriveFile> googleDriveFiles, User manager,
+            User employee,
+            Customer customer, LocalDateTime createdAt, Expense expense) {
         this.name = name;
         this.status = status;
         this.phone = phone;
@@ -79,6 +86,7 @@ public class Lead {
         this.employee = employee;
         this.customer = customer;
         this.createdAt = createdAt;
+        this.expense = expense;
     }
 
     public int getLeadId() {
@@ -161,7 +169,6 @@ public class Lead {
         this.files.remove(file);
     }
 
-
     public void addGoogleDriveFile(GoogleDriveFile googleDriveFile) {
         this.googleDriveFiles.add(googleDriveFile);
     }
@@ -217,6 +224,12 @@ public class Lead {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    public Expense getExpense() {
+        return expense;
+    }
+
+    public void setExpense(Expense expense) {
+        this.expense = expense;
+    }
 }
-
-
