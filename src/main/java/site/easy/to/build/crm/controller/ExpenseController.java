@@ -43,13 +43,17 @@ public class ExpenseController {
 
         List<BudgetDTO> budgetDTOS = new ArrayList<>();
         BudgetDTO budgetDTOGlobal = new BudgetDTO();
+        Expense expense = new Expense();
         if (leadId != null) {
             Lead lead = leadService.findByLeadId(leadId);
             if (lead == null) {
                 return "error/not-found";
             }
+            if (lead.getExpense() != null) {
+                expense = lead.getExpense();
+            }
             budgetDTOS = budgetService.getBudgetsAfterExpense(lead.getCustomer().getCustomerId());
-            budgetDTOGlobal = budgetService.getBudgetDTOGlobal(budgetDTOS);
+            budgetDTOGlobal = budgetService.getBudgetDTOGlobal(lead.getCustomer().getCustomerId());
             model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
             model.addAttribute("budgetDTOS", budgetDTOS);
             model.addAttribute("leadId", leadId);
@@ -58,8 +62,11 @@ public class ExpenseController {
             if (ticket == null) {
                 return "error/not-found";
             }
+            if (ticket.getExpense() != null) {
+                expense = ticket.getExpense();
+            }
             budgetDTOS = budgetService.getBudgetsAfterExpense(ticket.getCustomer().getCustomerId());
-            budgetDTOGlobal = budgetService.getBudgetDTOGlobal(budgetDTOS);
+            budgetDTOGlobal = budgetService.getBudgetDTOGlobal(ticket.getCustomer().getCustomerId());
             model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
             model.addAttribute("budgetDTOS", budgetDTOS);
             model.addAttribute("ticketId", ticketId);
@@ -67,7 +74,7 @@ public class ExpenseController {
             return "error/400";
         }
 
-        model.addAttribute("expense", new Expense());
+        model.addAttribute("expense", expense);
         return "expense/create-expense";
     }
 
@@ -77,18 +84,7 @@ public class ExpenseController {
             @RequestParam(required = false) Integer leadId,
             @RequestParam(required = false) Integer ticketId,
             Model model) {
-
-        if (bindingResult.hasErrors()) {
-            if (leadId != null) {
-                model.addAttribute("leadId", leadId);
-            }
-            if (ticketId != null) {
-                model.addAttribute("ticketId", ticketId);
-            }
-            return "expense/create-expense";
-        }
-
-        Expense savedExpense = expenseService.save(expense);
+        System.out.println("error "+bindingResult.hasErrors());
 
         // Mettre à jour le lead ou le ticket selon le contexte
         if (leadId != null) {
@@ -96,6 +92,8 @@ public class ExpenseController {
             if (lead == null) {
                 return "error/not-found";
             }
+            expense.setCustomer(lead.getCustomer());
+            Expense savedExpense = expenseService.save(expense);
             lead.setExpense(savedExpense);
             leadService.save(lead);
             return "redirect:/employee/lead/show/" + leadId;
@@ -104,6 +102,8 @@ public class ExpenseController {
             if (ticket == null) {
                 return "error/not-found";
             }
+            expense.setCustomer(ticket.getCustomer());
+            Expense savedExpense = expenseService.save(expense);
             ticket.setExpense(savedExpense);
             ticketService.save(ticket);
             return "redirect:/employee/ticket/show-ticket/" + ticketId;

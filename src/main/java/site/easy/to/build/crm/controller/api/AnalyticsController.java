@@ -10,7 +10,8 @@ import site.easy.to.build.crm.service.customer.CustomerService;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
+
+// Data for chart
 
 @RestController
 @RequestMapping("/api")
