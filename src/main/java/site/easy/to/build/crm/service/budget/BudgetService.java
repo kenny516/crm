@@ -24,10 +24,6 @@ public class BudgetService {
     private ParameterService parameterService;
     private CustomerService customerService;
 
-    @Autowired
-    public BudgetService(BudgetRepository budgetRepository) {
-        this.budgetRepository = budgetRepository;
-    }
 
     public Budget findById(Integer id) {
         return budgetRepository.findById(id).orElse(null);
@@ -72,7 +68,7 @@ public class BudgetService {
         Parameter parameter = parameterService.findThresholdAlert();
         for (BudgetDTO budget : budgets) {
             double threshold = budget.getInitialAmount() * parameter.getParameterValue() / 100;
-            if (budget.getCurrentAmount() <= threshold) {
+            if (budget.getInitialAmount() - budget.getCurrentAmount() >= threshold) {
                 budget.setStatus("Alerte budget a " + parameter.getParameterValue() + " % "
                         + "Budget initial : " + budget.getInitialAmount() + "\n" +
                         "Budget Actuel :  " + budget.getCurrentAmount() + "\n");
@@ -83,22 +79,29 @@ public class BudgetService {
         return budgets;
     }
 
-    public Double cumulBudget(Integer customerId) {
-        return ((BigDecimal) budgetRepository.getBudgetsAfterExpenseRawGlobal(customerId)).doubleValue();
-    }
+//    public Double cumulBudget(Integer customerId) {
+//        return ((BigDecimal) budgetRepository.getBudgetsAfterExpenseRawGlobal(customerId)).doubleValue();
+//    }
 
-    public BudgetDTO getBudgetDTOGlobal(List<BudgetDTO> budgetDTOS) {
-        Parameter parameter = parameterService.findThresholdAlert();
+    public BudgetDTO getBudgetGlobal(Integer customerId){
         BudgetDTO budgetDTO = new BudgetDTO();
-        budgetDTO.setInitialAmount(0.0);
-        budgetDTO.setCurrentAmount(0.0);
-        for (BudgetDTO budget : budgetDTOS) {
-            budgetDTO.setInitialAmount(budgetDTO.getInitialAmount() + budget.getInitialAmount());
-            budgetDTO.setCurrentAmount(budgetDTO.getCurrentAmount() + budget.getCurrentAmount());
-            budgetDTO.setCustomerId(budget.getCustomerId());
+        Object[] objets = (Object[]) budgetRepository.getBudgetsAfterExpenseRawGlobal(customerId);
+        budgetDTO.setBudgetId(customerId);
+        if (objets == null){
+            budgetDTO.setInitialAmount(0.0);
+            budgetDTO.setCurrentAmount(0.0);
+        }else{
+            budgetDTO.setInitialAmount(objets[0] != null ? ((BigDecimal) objets[0]).doubleValue() : 0.0);
+            budgetDTO.setCurrentAmount(objets[1] != null ? ((BigDecimal) objets[1]).doubleValue() : 0.0);
         }
+
+        return budgetDTO;
+    }
+    public BudgetDTO getBudgetDTOGlobal(Integer customerId) {
+        Parameter parameter = parameterService.findThresholdAlert();
+        BudgetDTO budgetDTO = getBudgetGlobal(customerId);
         double threshold = budgetDTO.getInitialAmount() * parameter.getParameterValue() / 100;
-        if (budgetDTO.getCurrentAmount() <= threshold) {
+        if (budgetDTO.getInitialAmount() - budgetDTO.getCurrentAmount() >= threshold) {
             budgetDTO.setStatus("Alerte budget au plafon " + parameter.getParameterValue() + " % \n " +
                     "Budget initial : " + budgetDTO.getInitialAmount() + "\n" +
                     "Budget Actuel :  " + budgetDTO.getCurrentAmount() + "\n");
@@ -114,8 +117,7 @@ public class BudgetService {
         List<Customer> customers = customerService.findAll();
         List<BudgetDTO> budgetDTOS = new ArrayList<>();
         for (Customer customer : customers) {
-            List<BudgetDTO> budgetDTOSCustomer = getBudgetsAfterExpense(customer.getCustomerId());
-            budgetDTOS.add(getBudgetDTOGlobal(budgetDTOSCustomer));
+            budgetDTOS.add(getBudgetDTOGlobal(customer.getCustomerId()));
         }
         return budgetDTOS;
     }

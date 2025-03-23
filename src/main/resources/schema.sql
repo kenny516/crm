@@ -328,10 +328,13 @@ CREATE TABLE IF NOT EXISTS expense
     amount       decimal(10, 2) NOT NULL,
     date_expense date           NOT NULL,
     description  varchar(255) DEFAULT NULL,
-    budget_id    int unsigned   NOT NULL,
+    budget_id    int unsigned DEFAULT NULL,
+    customer_id  int unsigned   NOT NULL,
     PRIMARY KEY (expense_id),
     KEY budget_id (budget_id),
-    CONSTRAINT expense_ibfk_1 FOREIGN KEY (budget_id) REFERENCES budget (budget_id)
+    KEY customer_id (customer_id),
+    CONSTRAINT expense_ibfk_1 FOREIGN KEY (budget_id) REFERENCES budget (budget_id),
+    CONSTRAINT expense_ibfk_2 FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
@@ -656,3 +659,20 @@ CREATE TABLE IF NOT EXISTS `google_drive_file`
 /*!40111 SET SQL_NOTES = @OLD_SQL_NOTES */
 ;
 # custom
+
+;
+SELECT
+    b.initialAmount,
+    b.customer_id,
+    (b.initialAmount - COALESCE(e.totalExpense, 0)) AS currentAmount
+FROM
+    (SELECT customer_id, SUM(amount) AS initialAmount
+     FROM budget
+     WHERE customer_id = 43
+     GROUP BY customer_id) b
+        LEFT JOIN
+    (SELECT customer_id, SUM(amount) AS totalExpense
+     FROM crm.expense
+     WHERE customer_id = 43
+     GROUP BY customer_id) e
+    ON b.customer_id = e.customer_id

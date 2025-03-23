@@ -25,17 +25,36 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
             FROM budget b
             LEFT JOIN crm.expense e ON b.budget_id = e.budget_id
             WHERE b.customer_id = :customerId
-            GROUP BY b.budget_id, b.title, b.start_date, b.end_date, b.customer_id
+            GROUP BY b.budget_id, b.title, b.start_date, b.end_date, b.customer_id,b.amount
             """, nativeQuery = true)
     List<Object[]> getBudgetsAfterExpenseRaw(@Param("customerId") Integer customerId);
 
     @Query(value = """
             SELECT
-                    SUM(b.amount)
-            FROM budget b
-            WHERE b.customer_id = :customerId
+                b.initialAmount,
+                (b.initialAmount - COALESCE(e.totalExpense, 0)) AS currentAmount,
+                b.customer_id
+            FROM
+                (SELECT customer_id, SUM(amount) AS initialAmount
+                 FROM budget
+                 WHERE customer_id = :customerId
+                 GROUP BY customer_id) b
+                    LEFT JOIN
+                (SELECT customer_id, SUM(amount) AS totalExpense
+                 FROM crm.expense
+                 WHERE customer_id = :customerId
+                 GROUP BY customer_id) e
+                ON b.customer_id = e.customer_id
             """, nativeQuery = true)
     Object getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
+
+//    @Query(value = """
+//            SELECT
+//                    SUM(b.amount)
+//            FROM budget b
+//            WHERE b.customer_id = :customerId
+//            """, nativeQuery = true)
+//    Object getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
 
 
 }
