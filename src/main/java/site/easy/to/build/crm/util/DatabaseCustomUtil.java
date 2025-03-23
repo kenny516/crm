@@ -1,20 +1,33 @@
 package site.easy.to.build.crm.util;
 
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import site.easy.to.build.crm.entity.Customer;
+import site.easy.to.build.crm.entity.CustomerLoginInfo;
+import site.easy.to.build.crm.entity.Ticket;
+import site.easy.to.build.crm.entity.User;
+import site.easy.to.build.crm.service.customer.CustomerService;
+import site.easy.to.build.crm.service.user.UserService;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
+@AllArgsConstructor
 @Service
 public class DatabaseCustomUtil {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
     private final Faker faker = new Faker();
+    private final PasswordEncoder passwordEncoder;
+    // service
+    private UserService userService;
+    private CustomerService customerService;
 
     @Transactional
     public void resetDatabase() {
@@ -44,58 +57,47 @@ public class DatabaseCustomUtil {
     }
 
 
-
     @Transactional
     public void generateDataTable(List<String> selectedTables, int count) {
-        Set<String> tables = new HashSet<>(selectedTables);
 
-        List<Integer> userIds = jdbcTemplate.queryForList("SELECT id FROM users", Integer.class);
-        List<Integer> customerIds = new ArrayList<>();
-
-        // Générer dans l'ordre en respectant les dépendances
-        if (tables.contains("customer_login_info")) {
-            //generateCustomerLoginInfos(count);
-        }
-
-        if (tables.contains("customer") || hasDependentTables(tables)) {
-            //customerIds = generateCustomers(count, userIds);
-        }
-
-        if (tables.contains("trigger_lead")) {
-            //generateLeads(count, customerIds, userIds);
-        }
-
-        List<Integer> leadIds = jdbcTemplate.queryForList("SELECT lead_id FROM trigger_lead", Integer.class);
-
-        if (tables.contains("trigger_contract")) {
-            //generateContracts(count, customerIds, userIds, leadIds);
-        }
-
-        if (tables.contains("trigger_ticket")) {
-            //generateTickets(count, customerIds, userIds);
-        }
-
-        List<Integer> templateIds = jdbcTemplate.queryForList("SELECT template_id FROM email_template", Integer.class);
-        List<Integer> customerLoginInfoIds = jdbcTemplate.queryForList("SELECT id FROM customer_login_info",
-                Integer.class);
-
-        if (tables.contains("contract_settings")) {
-            //generateContractSettings(count, userIds, templateIds, customerLoginInfoIds);
-        }
-
-        if (tables.contains("ticket_settings")) {
-            //generateTicketSettings(count, userIds, templateIds, customerLoginInfoIds);
-        }
-
-        if (tables.contains("lead_settings")) {
-            //generateLeadSettings(count, userIds, templateIds, customerLoginInfoIds);
-        }
     }
 
 
-    private boolean hasDependentTables(Set<String> tables) {
-        return tables.contains("trigger_contract") ||
-                tables.contains("trigger_ticket") ||
-                tables.contains("trigger_lead");
+    private List<Customer> generateCustomers(int count) {
+        List<User> adminOrEmp = userService.findAll();
+        List<Customer> customers = new ArrayList<>();
+        for (User user : adminOrEmp) {
+            for (int i = 0; i < count; i++) {
+                String email = faker.name().username() + "@gmail.com";
+                CustomerLoginInfo customerLoginInfo = new CustomerLoginInfo();
+                customerLoginInfo.setEmail(email);
+                customerLoginInfo.setPasswordSet(true);
+                String hashPassword = passwordEncoder.encode("2004");
+                customerLoginInfo.setPassword(hashPassword);
+                String token = EmailTokenUtils.generateToken();
+                customerLoginInfo.setToken(token);
+                // save le customerlogin
+                Customer customer = new Customer();
+                customer.setName(faker.name().username());
+                customer.setPosition(faker.address().fullAddress());
+                customer.setEmail(email);
+                customer.setCustomerLoginInfo(customerLoginInfo);
+                // save the customer
+                customers.add(customer);
+            }
+        }
+        return customers;
     }
+
+//    public List<Ticket> generateTickets(int count) {
+//        List<Customer> customers = customerService.findAll();
+//        List<User> adminOrEmp = userService.findAll();
+//        List<Ticket> tickets = new ArrayList<>();
+//        for (User user : adminOrEmp) {
+//            for (int i = 0; i < count; i++) {
+//
+//            }
+//        }
+//    }
+
 }
