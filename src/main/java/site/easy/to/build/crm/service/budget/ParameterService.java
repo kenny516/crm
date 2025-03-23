@@ -2,6 +2,7 @@ package site.easy.to.build.crm.service.budget;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import site.easy.to.build.crm.entity.Parameter;
 import site.easy.to.build.crm.repository.ParameterRepository;
 
@@ -16,5 +17,11 @@ public class ParameterService {
 
     public Parameter findThresholdAlert(){
         return findByKey("thresholdAlertBudget");
+    }
+    public Parameter updateThresholdAlert(@RequestParam Double value) {
+        Parameter parameter = findByKey("thresholdAlertBudget");
+        parameter.setParameterValue(value);
+        parameterRepository.save(parameter);
+        return parameter;
     }
 }
