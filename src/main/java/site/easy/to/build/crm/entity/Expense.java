@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,6 +28,7 @@ public class Expense {
     @Column(name = "amount")
     private Double amount;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_expense")
     private LocalDate dateExpense;
 
