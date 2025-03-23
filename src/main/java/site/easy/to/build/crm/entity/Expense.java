@@ -34,4 +34,8 @@ public class Expense {
     @JoinColumn(name = "budget_id")
     private Budget budget;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
 }

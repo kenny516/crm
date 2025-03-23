@@ -86,8 +86,8 @@
                                     <label class="m-t-20" for="budget">Budget:</label>
                                     <div class="input-group">
                                         <select id="budget" th:field="*{budget}" class="form-control"
-                                            required="required">
-                                            <option value=" - "  selected>-- Select a budget --</option>
+                                            >
+                                            <option value="" selected>- - Select a budget - -</option>
                                             <option th:each="budgetDTO : ${budgetDTOS}" th:value="${budgetDTO.budgetId}"
                                                 th:text="${budgetDTO.currentAmount}+' - ' + ${budgetDTO.title} + ' - ' + ${budgetDTO.status}"></option>
                                         </select>
