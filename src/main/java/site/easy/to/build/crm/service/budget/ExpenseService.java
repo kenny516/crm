@@ -43,29 +43,34 @@ public class ExpenseService {
 
     ///  API
 
-    public Map<Integer,Double> getTicketExpensesByCustomer(){
+    public Map<Integer, Double> getTicketExpensesByCustomer() {
         List<Customer> customers = customerService.findAll();
-        Map<Integer,Double> customExpense = new HashMap<>();
-        for(Customer customer : customers){
+        Map<Integer, Double> customExpense = new HashMap<>();
+        for (Customer customer : customers) {
             List<Ticket> ticketsCust = ticketService.findCustomerTickets(customer.getCustomerId());
             Double expense = 0.0;
             for (Ticket ticket : ticketsCust) {
-                expense += ticket.getExpense().getAmount();
+                if (ticket.getExpense() != null) {
+                    expense += ticket.getExpense().getAmount();
+                }
             }
-            customExpense.put(customer.getCustomerId(),expense);
+            customExpense.put(customer.getCustomerId(), expense);
         }
         return customExpense;
     }
-    public   Map<Integer,Double> getLeadExpensesByCustomer(){
+
+    public Map<Integer, Double> getLeadExpensesByCustomer() {
         List<Customer> customers = customerService.findAll();
-        Map<Integer,Double> customExpense = new HashMap<>();
-        for(Customer customer : customers){
+        Map<Integer, Double> customExpense = new HashMap<>();
+        for (Customer customer : customers) {
             List<Lead> leadsCust = leadService.getLeadsByCustomerId(customer.getCustomerId());
             Double expense = 0.0;
-            for (Lead ticket : leadsCust) {
-                expense += ticket.getExpense().getAmount();
+            for (Lead lead : leadsCust) {
+                if (lead.getExpense() != null) {
+                    expense += lead.getExpense().getAmount();
+                }
             }
-            customExpense.put(customer.getCustomerId(),expense);
+            customExpense.put(customer.getCustomerId(), expense);
         }
         return customExpense;
     }
@@ -89,10 +94,9 @@ public class ExpenseService {
         double totalExpenses;
         double totalLeadExpenses = expenseRepository.sumExpenseLeadByCustomerID(customerId);
         double totalTicketExpense = expenseRepository.sumExpenseTicketByCustomerID(customerId);
-        totalExpenses =  totalLeadExpenses + totalTicketExpense;
+        totalExpenses = totalLeadExpenses + totalTicketExpense;
         return totalExpenses;
     }
-
 
 
 }
