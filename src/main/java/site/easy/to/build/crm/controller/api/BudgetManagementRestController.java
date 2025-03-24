@@ -33,21 +33,6 @@ public class BudgetManagementRestController {
         return new ResponseEntity<>(budget, HttpStatus.OK);
     }
 
-
-    // Mise à jour du montant d'un budget
-    @PutMapping("/budget/{id}/amount")
-    public ResponseEntity<Budget> updateBudgetAmount(
-            @PathVariable Integer id,
-            @RequestParam Double amount) {
-        Budget budget = budgetService.findById(id);
-        if (budget == null) {
-            return ResponseEntity.notFound().build();
-        }
-        budget.setAmount(amount);
-        return ResponseEntity.ok(budgetService.update(budget));
-    }
-
-
     // Suppression d'un budget
     @DeleteMapping("/budget/{id}")
     public ResponseEntity<Void> deleteBudget(@PathVariable Integer id) {
@@ -65,7 +50,6 @@ public class BudgetManagementRestController {
         Parameter parameter = parameterService.updateThresholdAlert(value);
         return ResponseEntity.ok(parameter);
     }
-
     // Obtention du seuil d'alerte actuel
     @GetMapping("/threshold")
     public ResponseEntity<Parameter> getThresholdAlert() {
