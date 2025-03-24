@@ -19,7 +19,7 @@ public interface ExpenseRepository extends JpaRepository<Expense, Integer> {
                         JOIN expense ON expense.expense_id = trigger_ticket.expense_id
                     WHERE trigger_ticket.expense_id IS NOT NULL
             """, nativeQuery = true)
-    List<Expense> findAllByTicketIsNotNull();
+    List<Expense> findAllExpenseByTicketIsNotNull();
 
     @Query(value = """
                     SELECT
@@ -28,7 +28,7 @@ public interface ExpenseRepository extends JpaRepository<Expense, Integer> {
                         JOIN expense ON expense.expense_id = trigger_lead.expense_id
                     WHERE trigger_lead.expense_id IS NOT NULL
             """, nativeQuery = true)
-    List<Expense> findAllByLeadIsNotNull();
+    List<Expense> findAllExpenseByLeadIsNotNull();
 
 
     @Query("""
@@ -46,6 +46,7 @@ public interface ExpenseRepository extends JpaRepository<Expense, Integer> {
             WHERE l.customer.customerId = :customerId
             """)
     Double sumExpenseLeadByCustomerID(@Param("customerId") Integer customerId);
+
 
 
 

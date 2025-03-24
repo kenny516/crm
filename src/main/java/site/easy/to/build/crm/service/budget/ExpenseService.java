@@ -77,14 +77,14 @@ public class ExpenseService {
 
 
     public BigDecimal getTotalTicketExpenses() {
-        List<Expense> expenses = expenseRepository.findAllByTicketIsNotNull();
+        List<Expense> expenses = expenseRepository.findAllExpenseByTicketIsNotNull();
         return expenses.stream()
                 .map(expense -> BigDecimal.valueOf(expense.getAmount()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public BigDecimal getTotalLeadExpenses() {
-        List<Expense> expenses = expenseRepository.findAllByLeadIsNotNull();
+        List<Expense> expenses = expenseRepository.findAllExpenseByLeadIsNotNull();
         return expenses.stream()
                 .map(expense -> BigDecimal.valueOf(expense.getAmount()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

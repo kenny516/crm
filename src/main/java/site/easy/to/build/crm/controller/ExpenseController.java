@@ -30,8 +30,6 @@ public class ExpenseController {
     private final ExpenseService expenseService;
     private final LeadService leadService;
     private final TicketService ticketService;
-    private final UserService userService;
-    private final AuthenticationUtils authenticationUtils;
     private final BudgetService budgetService;
 
 

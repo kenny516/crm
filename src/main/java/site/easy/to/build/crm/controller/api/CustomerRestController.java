@@ -37,6 +37,9 @@ public class CustomerRestController {
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestParam String email, @RequestParam String password) {
         User user = userService.findByEmail(email);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
         if (passwordEncoder.matches(password, user.getPassword())) {
             return ResponseEntity.ok(user);
         }
