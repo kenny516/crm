@@ -1,8 +1,6 @@
 package site.easy.to.build.crm.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,11 +12,7 @@ import site.easy.to.build.crm.service.budget.BudgetService;
 import site.easy.to.build.crm.service.budget.ExpenseService;
 import site.easy.to.build.crm.service.lead.LeadService;
 import site.easy.to.build.crm.service.ticket.TicketService;
-import site.easy.to.build.crm.service.user.UserService;
-import site.easy.to.build.crm.util.AuthenticationUtils;
-import site.easy.to.build.crm.util.AuthorizationUtil;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +24,6 @@ public class ExpenseController {
     private final ExpenseService expenseService;
     private final LeadService leadService;
     private final TicketService ticketService;
-    private final UserService userService;
-    private final AuthenticationUtils authenticationUtils;
     private final BudgetService budgetService;
 
 
@@ -92,7 +84,6 @@ public class ExpenseController {
             if (lead == null) {
                 return "error/not-found";
             }
-            expense.setCustomer(lead.getCustomer());
             Expense savedExpense = expenseService.save(expense);
             lead.setExpense(savedExpense);
             leadService.save(lead);
@@ -102,7 +93,6 @@ public class ExpenseController {
             if (ticket == null) {
                 return "error/not-found";
             }
-            expense.setCustomer(ticket.getCustomer());
             Expense savedExpense = expenseService.save(expense);
             ticket.setExpense(savedExpense);
             ticketService.save(ticket);

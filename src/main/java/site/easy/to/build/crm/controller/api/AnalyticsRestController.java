@@ -1,7 +1,6 @@
 package site.easy.to.build.crm.controller.api;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import site.easy.to.build.crm.entity.Customer;
 import site.easy.to.build.crm.service.budget.BudgetService;
@@ -18,7 +17,7 @@ import java.util.Map;
 @RequestMapping("/api")
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:5000")
-public class AnalyticsController {
+public class AnalyticsRestController {
     
     private final ExpenseService expenseService;
     private final BudgetService budgetService;
