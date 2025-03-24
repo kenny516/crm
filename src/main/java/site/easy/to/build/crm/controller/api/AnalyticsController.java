@@ -1,5 +1,6 @@
 package site.easy.to.build.crm.controller.api;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import site.easy.to.build.crm.entity.Customer;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:5000")
 public class AnalyticsController {
     
@@ -22,12 +24,6 @@ public class AnalyticsController {
     private final BudgetService budgetService;
     private final CustomerService customerService;
 
-    @Autowired
-    public AnalyticsController(ExpenseService expenseService, BudgetService budgetService, CustomerService customerService) {
-        this.expenseService = expenseService;
-        this.budgetService = budgetService;
-        this.customerService = customerService;
-    }
 
     @GetMapping("/expenses/tickets/by-customer")
     public Map<String, Double> getTicketExpensesByCustomer() {

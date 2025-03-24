@@ -3,8 +3,9 @@ package site.easy.to.build.crm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import site.easy.to.build.crm.DTO.BudgetDTO;
 import site.easy.to.build.crm.service.budget.BudgetService;
+import site.easy.to.build.crm.service.budget.ExpenseService;
+import site.easy.to.build.crm.service.customer.CustomerService;
 
 import java.util.List;
 
@@ -13,21 +14,17 @@ class CrmApplicationTests {
 
 	@Autowired
 	BudgetService budgetService;
+	@Autowired
+	CustomerService customerService;
+	@Autowired
+	ExpenseService expenseService;
 
 	@Test
 	void contextLoads() {
-
-		List<BudgetDTO> budgetDTOS =  budgetService.getBudgetsAfterExpense(43);
-		for (int i = 0; i < budgetDTOS.size(); i++) {
-			System.out.println(budgetDTOS.get(i).getBudgetId());
-			System.out.println(budgetDTOS.get(i).getTitle());
-			System.out.println(budgetDTOS.get(i).getInitialAmount());
-			System.out.println(budgetDTOS.get(i).getCurrentAmount());
-			System.out.println(budgetDTOS.get(i).getStartDate());
-			System.out.println(budgetDTOS.get(i).getEndDate());
-			System.out.println(budgetDTOS.get(i).getCustomerId());
-
-		}
+		double sumBudget = budgetService.getTotalBudgetByCustomer(43);
+		double sumExpense = expenseService.getTotalExpenses(43);
+		System.out.println("budget "+sumBudget);
+		System.out.println("expense "+sumExpense);
 	}
 
 }

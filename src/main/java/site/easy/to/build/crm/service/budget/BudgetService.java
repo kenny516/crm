@@ -23,6 +23,7 @@ public class BudgetService {
     private final BudgetRepository budgetRepository;
     private ParameterService parameterService;
     private CustomerService customerService;
+    private ExpenseService expenseService;
 
 
     public Budget findById(Integer id) {
@@ -83,20 +84,16 @@ public class BudgetService {
 //        return ((BigDecimal) budgetRepository.getBudgetsAfterExpenseRawGlobal(customerId)).doubleValue();
 //    }
 
-    public BudgetDTO getBudgetGlobal(Integer customerId){
+    public BudgetDTO getBudgetGlobal(Integer customerId) {
         BudgetDTO budgetDTO = new BudgetDTO();
-        Object[] objets = (Object[]) budgetRepository.getBudgetsAfterExpenseRawGlobal(customerId);
+        double sumBudget = getTotalBudgetByCustomer(customerId);
+        double sumExpense = expenseService.getTotalExpenses(customerId);
         budgetDTO.setBudgetId(customerId);
-        if (objets == null){
-            budgetDTO.setInitialAmount(0.0);
-            budgetDTO.setCurrentAmount(0.0);
-        }else{
-            budgetDTO.setInitialAmount(objets[0] != null ? ((BigDecimal) objets[0]).doubleValue() : 0.0);
-            budgetDTO.setCurrentAmount(objets[1] != null ? ((BigDecimal) objets[1]).doubleValue() : 0.0);
-        }
-
+        budgetDTO.setInitialAmount(sumBudget);
+        budgetDTO.setCurrentAmount(sumBudget - sumExpense);
         return budgetDTO;
     }
+
     public BudgetDTO getBudgetDTOGlobal(Integer customerId) {
         Parameter parameter = parameterService.findThresholdAlert();
         BudgetDTO budgetDTO = getBudgetGlobal(customerId);
@@ -136,5 +133,10 @@ public class BudgetService {
         return budgets.stream()
                 .map(budget -> BigDecimal.valueOf(budget.getAmount()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    ///
+    public double getTotalBudgetByCustomer(Integer customerId) {
+        return budgetRepository.getTotalBudgetByCustomer(customerId);
     }
 }
