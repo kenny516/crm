@@ -29,9 +29,7 @@ public class ExpenseController {
 
 
     @GetMapping("/create")
-    public String showCreateForm(@RequestParam(required = false) Integer leadId,
-            @RequestParam(required = false) Integer ticketId,
-            Model model) {
+    public String showCreateForm(@RequestParam(required = false) Integer leadId,@RequestParam(required = false) Integer ticketId,Model model) {
 
         List<BudgetDTO> budgetDTOS = new ArrayList<>();
         BudgetDTO budgetDTOGlobal = new BudgetDTO();
@@ -46,8 +44,7 @@ public class ExpenseController {
             }
             budgetDTOS = budgetService.getBudgetsAfterExpense(lead.getCustomer().getCustomerId());
             budgetDTOGlobal = budgetService.getBudgetDTOGlobal(lead.getCustomer().getCustomerId());
-            model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
-            model.addAttribute("budgetDTOS", budgetDTOS);
+
             model.addAttribute("leadId", leadId);
         } else if (ticketId != null) {
             Ticket ticket = ticketService.findByTicketId(ticketId);
@@ -59,13 +56,13 @@ public class ExpenseController {
             }
             budgetDTOS = budgetService.getBudgetsAfterExpense(ticket.getCustomer().getCustomerId());
             budgetDTOGlobal = budgetService.getBudgetDTOGlobal(ticket.getCustomer().getCustomerId());
-            model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
-            model.addAttribute("budgetDTOS", budgetDTOS);
             model.addAttribute("ticketId", ticketId);
         } else {
             return "error/400";
         }
 
+        model.addAttribute("budgetDTOS", budgetDTOS);
+        model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
         model.addAttribute("expense", expense);
         return "expense/create-expense";
     }
