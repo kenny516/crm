@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="~{/general/head.html}"></div>
+
+<!-- Custom CSS -->
+<link th:href="@{/css/style.min.css}" rel="stylesheet">
+<!-- page css -->
+<link th:href="@{/css/pages/inbox.css}" rel="stylesheet">
+
+</head>
+
+<body class="skin-blue fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">CRM</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div th:insert="~{/general/header.html}"></div>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div th:insert="~{/general/left-sidebar.html}"></div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div th:insert="~{/general/page-titles.html}"></div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Add New Expense</h4>
+                                <div id="alertMessage" class="alert alert-warning" style="display: none;">
+                                    Attention : Ce budget est proche de sa limite !
+                                </div>
+                                <form th:object="${expense}" th:action="@{/employee/expense/create}" method="post"
+                                    id="expenseForm">
+                                    <input type="hidden" th:value="${budgetDTOGlobal.currentAmount}" id="currentAmount">
+                                    <input type="hidden" th:value="${budgetDTOGlobal.status}" id="status">
+                                    <input type="hidden" th:if="${ticketId != null}" name="ticketId"
+                                        th:value="${ticketId}">
+                                    <input type="hidden" th:if="${leadId != null}" name="leadId" th:value="${leadId}">
+
+                                    <label class="m-t-20" for="description">Description:</label>
+                                    <div class="input-group">
+                                        <input type="text" id="description" th:field="*{description}"
+                                            class="form-control" required="required">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="text-danger font-weight-bold"
+                                            th:if="${#fields.hasErrors('description')}"
+                                            th:errors="*{description}"></span>
+                                    </div>
+
+                                    <label class="m-t-20" for="budget">Budget:</label>
+                                    <div class="input-group">
+                                        <select id="budget" th:field="*{budget}" class="form-control"
+                                            >
+                                            <option value="" selected>- - Select a budget - -</option>
+                                            <option th:each="budgetDTO : ${budgetDTOS}" th:value="${budgetDTO.budgetId}"
+                                                th:text="${budgetDTO.currentAmount}+' - ' + ${budgetDTO.title} + ' - ' + ${budgetDTO.status}"></option>
+                                        </select>
+                                    </div>
+                                    <label class="m-t-20" for="date">Date :</label>
+                                    <div class="input-group">
+                                        <input type="date" id="date" th:field="*{dateExpense}" class="form-control"
+                                               required>
+                                    </div>
+                                    <label class="m-t-20" for="amount">Amount:</label>
+                                    <div class="input-group">
+                                        <input type="number" step="0.01" id="amount" th:field="*{amount}"
+                                            class="form-control" required="required">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="text-danger font-weight-bold"
+                                            th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></span>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary m-t-20">Create expense</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <div th:insert="~{/general/right-sidebar.html}"></div>
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <div th:insert="~{/general/footer.html}"></div>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script th:inline="javascript">
+        var home = /*[[${home}]]*/ null;
+    </script>
+    <script th:src="@{/js/library/jquery-3.2.1.min.js}" type="text/javascript"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script th:src="@{/js/library/popper.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/library/bootstrap.min.js}" type="text/javascript"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script th:src="@{/js/library/perfect-scrollbar.jquery.min.js}" type="text/javascript"></script>
+    <!--Wave Effects -->
+    <script th:src="@{/js/library/waves.js}" type="text/javascript"></script>
+    <!--Menu sidebar -->
+    <script th:src="@{/js/library/sidebarmenu.js}" type="text/javascript"></script>
+    <!--Custom JavaScript -->
+    <script th:src="@{/js/library/custom.min.js}" type="text/javascript"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const budgetSelect = document.getElementById('budget');
+            const alertDiv = document.getElementById('alertMessage');
+
+            const status = document.getElementById('status').value;
+
+            if (status && status.includes('Alerte budget')) {
+                alertDiv.innerText = status;
+                alertDiv.style.display = 'block';
+            } else {
+                alertDiv.style.display = 'none';
+            }
+
+            document.getElementById('expenseForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const budget = parseFloat(document.getElementById('currentAmount').value);
+                const amountInput = document.getElementById('amount');
+                const amount = parseFloat(amountInput.value);
+
+
+                if (amount > budget) {
+                    const userConfirmed = confirm('Le montant saisi est supérieur au budget disponible. Voulez-vous vraiment continuer ?');
+
+                    if (userConfirmed) {
+                        this.submit();
+                    }
+                } else {
+                    this.submit();
+                }
+            });
+
+
+            // budgetSelect.addEventListener('change', function () {
+            //     console.log("Selected option:", this.options[this.selectedIndex].text);
+            //     const selectedOption = this.options[this.selectedIndex];
+            //     const status = selectedOption.text.split(' - ')[2];
+            //
+            //     // Vérifier si le statut est "Alerte budget"
+            //     if (status && status.includes('Alerte budget')) {
+            //         alertDiv.style.display = 'block';
+            //     } else {
+            //         alertDiv.style.display = 'none';
+            //     }
+            // });
+
+            // document.getElementById('expenseForm').addEventListener('submit', function (e) {
+            //     e.preventDefault();
+            //
+            //     const amountInput = document.getElementById('amount');
+            //     const selectedOption = budgetSelect.options[budgetSelect.selectedIndex];
+            //     const amount = parseFloat(amountInput.value);
+            //
+            //     const statusText = selectedOption.text.split(' - ');
+            //     const currentAmount = parseFloat(statusText[0].trim());
+            //
+            //     if (amount > currentAmount) {
+            //         const userConfirmed = confirm('Le montant saisi est supérieur au budget disponible. Voulez-vous vraiment continuer ?');
+            //
+            //         if (userConfirmed) {
+            //             this.submit();
+            //         }
+            //     } else {
+            //         this.submit();
+            //     }
+            // });
+        });
+    </script>
+
+
+</body>
+
+</html>

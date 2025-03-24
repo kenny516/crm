@@ -20,6 +20,7 @@ import site.easy.to.build.crm.service.settings.TicketEmailSettingsService;
 import site.easy.to.build.crm.service.ticket.TicketService;
 import site.easy.to.build.crm.service.user.UserService;
 import site.easy.to.build.crm.util.*;
+import site.easy.to.build.crm.service.budget.ExpenseService;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -41,11 +42,14 @@ public class TicketController {
     private final TicketEmailSettingsService ticketEmailSettingsService;
     private final GoogleGmailApiService googleGmailApiService;
     private final EntityManager entityManager;
-
+    private final ExpenseService expenseService;
 
     @Autowired
-    public TicketController(TicketService ticketService, AuthenticationUtils authenticationUtils, UserService userService, CustomerService customerService,
-                            TicketEmailSettingsService ticketEmailSettingsService, GoogleGmailApiService googleGmailApiService, EntityManager entityManager) {
+    public TicketController(TicketService ticketService, AuthenticationUtils authenticationUtils,
+                            UserService userService, CustomerService customerService,
+                            TicketEmailSettingsService ticketEmailSettingsService, GoogleGmailApiService googleGmailApiService,
+                            EntityManager entityManager,
+                            ExpenseService expenseService) {
         this.ticketService = ticketService;
         this.authenticationUtils = authenticationUtils;
         this.userService = userService;
@@ -53,33 +57,35 @@ public class TicketController {
         this.ticketEmailSettingsService = ticketEmailSettingsService;
         this.googleGmailApiService = googleGmailApiService;
         this.entityManager = entityManager;
+        this.expenseService = expenseService;
     }
 
     @GetMapping("/show-ticket/{id}")
     public String showTicketDetails(@PathVariable("id") int id, Model model, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User loggedInUser = userService.findById(userId);
-        if(loggedInUser.isInactiveUser()) {
+        if (loggedInUser.isInactiveUser()) {
             return "error/account-inactive";
         }
 
         Ticket ticket = ticketService.findByTicketId(id);
-        if(ticket == null) {
+        if (ticket == null) {
             return "error/not-found";
         }
         User employee = ticket.getEmployee();
-        if(!AuthorizationUtil.checkIfUserAuthorized(employee,loggedInUser) && !AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
+        if (!AuthorizationUtil.checkIfUserAuthorized(employee, loggedInUser)
+                && !AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
             return "error/access-denied";
         }
 
-        model.addAttribute("ticket",ticket);
+        model.addAttribute("ticket", ticket);
         return "ticket/show-ticket";
     }
 
     @GetMapping("/manager/all-tickets")
     public String showAllTickets(Model model) {
         List<Ticket> tickets = ticketService.findAll();
-        model.addAttribute("tickets",tickets);
+        model.addAttribute("tickets", tickets);
         return "ticket/my-tickets";
     }
 
@@ -87,7 +93,7 @@ public class TicketController {
     public String showCreatedTicket(Model model, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         List<Ticket> tickets = ticketService.findManagerTickets(userId);
-        model.addAttribute("tickets",tickets);
+        model.addAttribute("tickets", tickets);
         return "ticket/my-tickets";
     }
 
@@ -95,20 +101,21 @@ public class TicketController {
     public String showEmployeeTicket(Model model, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         List<Ticket> tickets = ticketService.findEmployeeTickets(userId);
-        model.addAttribute("tickets",tickets);
+        model.addAttribute("tickets", tickets);
         return "ticket/my-tickets";
     }
+
     @GetMapping("/create-ticket")
     public String showTicketCreationForm(Model model, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User user = userService.findById(userId);
-        if(user.isInactiveUser()) {
+        if (user.isInactiveUser()) {
             return "error/account-inactive";
         }
         List<User> employees = new ArrayList<>();
         List<Customer> customers;
 
-        if(AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
+        if (AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
             employees = userService.findAll();
             customers = customerService.findAll();
         } else {
@@ -116,30 +123,31 @@ public class TicketController {
             customers = customerService.findByUserId(user.getId());
         }
 
-        model.addAttribute("employees",employees);
-        model.addAttribute("customers",customers);
+        model.addAttribute("employees", employees);
+        model.addAttribute("customers", customers);
         model.addAttribute("ticket", new Ticket());
         return "ticket/create-ticket";
     }
 
     @PostMapping("/create-ticket")
-    public String createTicket(@ModelAttribute("ticket") @Validated Ticket ticket, BindingResult bindingResult, @RequestParam("customerId") int customerId,
+    public String createTicket(@ModelAttribute("ticket") @Validated Ticket ticket, BindingResult bindingResult,
+                               @RequestParam("customerId") int customerId,
                                @RequestParam Map<String, String> formParams, Model model,
                                @RequestParam("employeeId") int employeeId, Authentication authentication) {
 
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User manager = userService.findById(userId);
-        if(manager == null) {
+        if (manager == null) {
             return "error/500";
         }
-        if(manager.isInactiveUser()) {
+        if (manager.isInactiveUser()) {
             return "error/account-inactive";
         }
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             List<User> employees = new ArrayList<>();
             List<Customer> customers;
 
-            if(AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
+            if (AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
                 employees = userService.findAll();
                 customers = customerService.findAll();
             } else {
@@ -147,19 +155,19 @@ public class TicketController {
                 customers = customerService.findByUserId(manager.getId());
             }
 
-            model.addAttribute("employees",employees);
-            model.addAttribute("customers",customers);
+            model.addAttribute("employees", employees);
+            model.addAttribute("customers", customers);
             return "ticket/create-ticket";
         }
 
         User employee = userService.findById(employeeId);
         Customer customer = customerService.findByCustomerId(customerId);
 
-        if(employee == null || customer == null) {
+        if (employee == null || customer == null) {
             return "error/500";
         }
-        if(AuthorizationUtil.hasRole(authentication, "ROLE_EMPLOYEE")) {
-            if(userId != employeeId || customer.getUser().getId() != userId) {
+        if (AuthorizationUtil.hasRole(authentication, "ROLE_EMPLOYEE")) {
+            if (userId != employeeId || customer.getUser().getId() != userId) {
                 return "error/500";
             }
         }
@@ -178,39 +186,41 @@ public class TicketController {
     public String showTicketUpdatingForm(Model model, @PathVariable("id") int id, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User loggedInUser = userService.findById(userId);
-        if(loggedInUser.isInactiveUser()) {
+        if (loggedInUser.isInactiveUser()) {
             return "error/account-inactive";
         }
 
         Ticket ticket = ticketService.findByTicketId(id);
-        if(ticket == null) {
+        if (ticket == null) {
             return "error/not-found";
         }
 
         User employee = ticket.getEmployee();
-        if(!AuthorizationUtil.checkIfUserAuthorized(employee,loggedInUser) && !AuthorizationUtil.hasRole(authentication,"ROLE_MANAGER")) {
+        if (!AuthorizationUtil.checkIfUserAuthorized(employee, loggedInUser)
+                && !AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
             return "error/access-denied";
         }
 
         List<User> employees = new ArrayList<>();
         List<Customer> customers = new ArrayList<>();
 
-        if(AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
+        if (AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
             employees = userService.findAll();
             customers = customerService.findAll();
         } else {
             employees.add(loggedInUser);
-            //In case Employee's manager assign lead for the employee with a customer that's not created by this employee
-            //As a result of that the employee mustn't change the customer
-            if(!Objects.equals(employee.getId(), ticket.getManager().getId())) {
+            // In case Employee's manager assign lead for the employee with a customer
+            // that's not created by this employee
+            // As a result of that the employee mustn't change the customer
+            if (!Objects.equals(employee.getId(), ticket.getManager().getId())) {
                 customers.add(ticket.getCustomer());
             } else {
                 customers = customerService.findByUserId(loggedInUser.getId());
             }
         }
 
-        model.addAttribute("employees",employees);
-        model.addAttribute("customers",customers);
+        model.addAttribute("employees", employees);
+        model.addAttribute("customers", customers);
         model.addAttribute("ticket", ticket);
         return "ticket/update-ticket";
     }
@@ -218,16 +228,17 @@ public class TicketController {
     @PostMapping("/update-ticket")
     public String updateTicket(@ModelAttribute("ticket") @Validated Ticket ticket, BindingResult bindingResult,
                                @RequestParam("customerId") int customerId, @RequestParam("employeeId") int employeeId,
-                               Authentication authentication, Model model) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                               Authentication authentication, Model model)
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User loggedInUser = userService.findById(userId);
-        if(loggedInUser.isInactiveUser()) {
+        if (loggedInUser.isInactiveUser()) {
             return "error/account-inactive";
         }
 
         Ticket previousTicket = ticketService.findByTicketId(ticket.getTicketId());
-        if(previousTicket == null) {
+        if (previousTicket == null) {
             return "error/not-found";
         }
         Ticket originalTicket = new Ticket();
@@ -237,11 +248,11 @@ public class TicketController {
         User employee = userService.findById(employeeId);
         Customer customer = customerService.findByCustomerId(customerId);
 
-        if(manager == null || employee ==null || customer == null) {
+        if (manager == null || employee == null || customer == null) {
             return "error/500";
         }
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             ticket.setEmployee(employee);
             ticket.setManager(manager);
             ticket.setCustomer(customer);
@@ -249,35 +260,37 @@ public class TicketController {
             List<User> employees = new ArrayList<>();
             List<Customer> customers = new ArrayList<>();
 
-            if(AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
+            if (AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
                 employees = userService.findAll();
                 customers = customerService.findAll();
             } else {
                 employees.add(loggedInUser);
-                //In case Employee's manager assign lead for the employee with a customer that's not created by this employee
-                //As a result of that the employee mustn't change the customer
-                if(!Objects.equals(employee.getId(), ticket.getManager().getId())) {
+                // In case Employee's manager assign lead for the employee with a customer
+                // that's not created by this employee
+                // As a result of that the employee mustn't change the customer
+                if (!Objects.equals(employee.getId(), ticket.getManager().getId())) {
                     customers.add(ticket.getCustomer());
                 } else {
                     customers = customerService.findByUserId(loggedInUser.getId());
                 }
             }
 
-            model.addAttribute("employees",employees);
-            model.addAttribute("customers",customers);
+            model.addAttribute("employees", employees);
+            model.addAttribute("customers", customers);
             return "ticket/update-ticket";
         }
-        if(manager.getId() == employeeId) {
+        if (manager.getId() == employeeId) {
             if (!AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER") && customer.getUser().getId() != userId) {
                 return "error/500";
             }
         } else {
-            if(!AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER") && originalTicket.getCustomer().getCustomerId() != customerId) {
+            if (!AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")
+                    && originalTicket.getCustomer().getCustomerId() != customerId) {
                 return "error/500";
             }
         }
 
-        if(AuthorizationUtil.hasRole(authentication, "ROLE_EMPLOYEE") && employee.getId() != userId) {
+        if (AuthorizationUtil.hasRole(authentication, "ROLE_EMPLOYEE") && employee.getId() != userId) {
             return "error/500";
         }
 
@@ -287,12 +300,13 @@ public class TicketController {
         Ticket currentTicket = ticketService.save(ticket);
 
         List<String> properties = DatabaseUtil.getColumnNames(entityManager, Ticket.class);
-        Map<String, Pair<String,String>> changes = LogEntityChanges.trackChanges(originalTicket,currentTicket,properties);
+        Map<String, Pair<String, String>> changes = LogEntityChanges.trackChanges(originalTicket, currentTicket,
+                properties);
         boolean isGoogleUser = !(authentication instanceof UsernamePasswordAuthenticationToken);
 
-        if(isGoogleUser && googleGmailApiService != null) {
+        if (isGoogleUser && googleGmailApiService != null) {
             OAuthUser oAuthUser = authenticationUtils.getOAuthUserFromAuthentication(authentication);
-            if(oAuthUser.getGrantedScopes().contains(GoogleAccessService.SCOPE_GMAIL)) {
+            if (oAuthUser.getGrantedScopes().contains(GoogleAccessService.SCOPE_GMAIL)) {
                 processEmailSettingsChanges(changes, userId, oAuthUser, customer);
             }
         }
@@ -301,23 +315,24 @@ public class TicketController {
     }
 
     @PostMapping("/delete-ticket/{id}")
-    public String deleteTicket(@PathVariable("id") int id, Authentication authentication){
+    public String deleteTicket(@PathVariable("id") int id, Authentication authentication) {
         int userId = authenticationUtils.getLoggedInUserId(authentication);
         User loggedInUser = userService.findById(userId);
-        if(loggedInUser.isInactiveUser()) {
+        if (loggedInUser.isInactiveUser()) {
             return "error/account-inactive";
         }
 
         Ticket ticket = ticketService.findByTicketId(id);
 
         User employee = ticket.getEmployee();
-        if(!AuthorizationUtil.checkIfUserAuthorized(employee,loggedInUser)) {
+        if (!AuthorizationUtil.checkIfUserAuthorized(employee, loggedInUser)) {
             return "error/access-denied";
         }
 
         ticketService.delete(ticket);
         return "redirect:/employee/ticket/assigned-tickets";
     }
+
 
     private void processEmailSettingsChanges(Map<String, Pair<String, String>> changes, int userId, OAuthUser oAuthUser,
                                              Customer customer) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -332,7 +347,8 @@ public class TicketController {
             TicketEmailSettings ticketEmailSettings = ticketEmailSettingsService.findByUserId(userId);
 
             CustomerLoginInfo customerLoginInfo = customer.getCustomerLoginInfo();
-            TicketEmailSettings customerTicketEmailSettings = ticketEmailSettingsService.findByCustomerId(customerLoginInfo.getId());
+            TicketEmailSettings customerTicketEmailSettings = ticketEmailSettingsService
+                    .findByCustomerId(customerLoginInfo.getId());
 
             if (ticketEmailSettings != null) {
                 String getterMethodName = "get" + StringUtils.capitalizeFirstLetter(propertyName);
@@ -340,13 +356,16 @@ public class TicketController {
                 Boolean propertyValue = (Boolean) getterMethod.invoke(ticketEmailSettings);
 
                 Boolean isCustomerLikeToGetNotified = true;
-                if(customerTicketEmailSettings != null) {
+                if (customerTicketEmailSettings != null) {
                     isCustomerLikeToGetNotified = (Boolean) getterMethod.invoke(customerTicketEmailSettings);
                 }
 
-                if (isCustomerLikeToGetNotified != null && propertyValue != null && propertyValue && isCustomerLikeToGetNotified) {
-                    String emailTemplateGetterMethodName = "get" + StringUtils.capitalizeFirstLetter(propertyName) + "EmailTemplate";
-                    Method emailTemplateGetterMethod = TicketEmailSettings.class.getMethod(emailTemplateGetterMethodName);
+                if (isCustomerLikeToGetNotified != null && propertyValue != null && propertyValue
+                        && isCustomerLikeToGetNotified) {
+                    String emailTemplateGetterMethodName = "get" + StringUtils.capitalizeFirstLetter(propertyName)
+                            + "EmailTemplate";
+                    Method emailTemplateGetterMethod = TicketEmailSettings.class
+                            .getMethod(emailTemplateGetterMethodName);
                     EmailTemplate emailTemplate = (EmailTemplate) emailTemplateGetterMethod.invoke(ticketEmailSettings);
                     String body = emailTemplate.getContent();
 
@@ -372,5 +391,37 @@ public class TicketController {
                 }
             }
         }
+    }
+
+    @PostMapping("/update-expense")
+    public String updateTicketExpense(@RequestParam("ticketId") int ticketId,
+                                      @RequestParam("expenseId") int expenseId,
+                                      Authentication authentication) {
+        int userId = authenticationUtils.getLoggedInUserId(authentication);
+        User loggedInUser = userService.findById(userId);
+        if (loggedInUser.isInactiveUser()) {
+            return "error/account-inactive";
+        }
+
+        Ticket ticket = ticketService.findByTicketId(ticketId);
+        if (ticket == null) {
+            return "error/not-found";
+        }
+
+        User employee = ticket.getEmployee();
+        if (!AuthorizationUtil.checkIfUserAuthorized(employee, loggedInUser)
+                && !AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
+            return "error/access-denied";
+        }
+
+        Expense expense = expenseService.findById(expenseId);
+        if (expense == null) {
+            return "error/not-found";
+        }
+
+        ticket.setExpense(expense);
+        ticketService.save(ticket);
+
+        return "redirect:/employee/ticket/show-ticket/" + ticketId;
     }
 }

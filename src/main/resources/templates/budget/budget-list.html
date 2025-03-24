@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="~{/general/head.html}"></div>
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap-wysihtml5.css}" />
+<!-- Editable CSS -->
+
+<!-- Custom CSS -->
+<link th:href="@{/css/style.min.css}" rel="stylesheet">
+<!-- page css -->
+<link th:href="@{/css/pages/inbox.css}" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="skin-blue fixed-layout">
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">CRM</p>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div th:insert="~{/general/header.html}"></div>
+        <div th:insert="~{/general/left-sidebar.html}"></div>
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Budgets de <span th:text="${customer.name}"></span></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a th:href="${home}">Home</a></li>
+                                <li class="breadcrumb-item active">Budgets</li>
+                            </ol>
+                            <a th:href="@{/budget/create/} + ${customer.customerId}"
+                                class="btn btn-info d-none d-lg-block m-l-15">
+                                <i class="fa fa-plus-circle"></i> Créer un Budget
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Titre</th>
+                                                <th>Montant</th>
+                                                <th>Date de début</th>
+                                                <th>Date de fin</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="budget : ${budgets}">
+                                                <td th:text="${budget.title}"></td>
+                                                <td th:text="${budget.amount}"></td>
+                                                <td th:text="${#temporals.format(budget.startDate, 'dd-MM-yyyy')}">
+                                                </td>
+                                                <td th:text="${#temporals.format(budget.endDate, 'dd-MM-yyyy')}"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:insert="~{/general/footer.html}"></div>
+    </div>
+
+    <script th:src="@{/js/library/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/library/popper.min.js}"></script>
+    <script th:src="@{/js/library/bootstrap.min.js}"></script>
+    <script th:src="@{/js/library/perfect-scrollbar.jquery.min.js}"></script>
+    <script th:src="@{/js/library/waves.js}"></script>
+    <script th:src="@{/js/library/sidebarmenu.js}"></script>
+    <script th:src="@{/js/library/custom.min.js}"></script>
+</body>
+
+</html>
