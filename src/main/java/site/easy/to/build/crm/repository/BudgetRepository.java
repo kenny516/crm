@@ -12,6 +12,10 @@ import java.util.List;
 public interface BudgetRepository extends JpaRepository<Budget, Integer> {
     List<Budget> findBudgetByCustomer(Customer customer);
 
+    @Query("""
+                select SUM(b.amount) from Budget b where b.customer.customerId = :customerId
+            """)
+    public double getTotalBudgetByCustomer(@Param("customerId") Integer customerId);
 
     @Query(value = """
             SELECT
@@ -48,13 +52,6 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
             """, nativeQuery = true)
     Object getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
 
-//    @Query(value = """
-//            SELECT
-//                    SUM(b.amount)
-//            FROM budget b
-//            WHERE b.customer_id = :customerId
-//            """, nativeQuery = true)
-//    Object getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
 
 
 }
