@@ -85,4 +85,14 @@ public class ExpenseService {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
+    public double getTotalExpenses(Integer customerId) {
+        double totalExpenses;
+        double totalLeadExpenses = expenseRepository.sumExpenseLeadByCustomerID(customerId);
+        double totalTicketExpense = expenseRepository.sumExpenseTicketByCustomerID(customerId);
+        totalExpenses =  totalLeadExpenses + totalTicketExpense;
+        return totalExpenses;
+    }
+
+
+
 }
