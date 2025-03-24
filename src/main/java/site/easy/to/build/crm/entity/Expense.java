@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -26,6 +27,7 @@ public class Expense {
     private String description;
 
     @Column(name = "amount")
+    @Positive
     private Double amount;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
