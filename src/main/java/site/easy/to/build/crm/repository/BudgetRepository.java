@@ -13,7 +13,7 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
     List<Budget> findBudgetByCustomer(Customer customer);
 
     @Query("""
-                select SUM(b.amount) from Budget b where b.customer.customerId = :customerId
+                select COALESCE(SUM(b.amount),0)  from Budget b where b.customer.customerId = :customerId
             """)
     public double getTotalBudgetByCustomer(@Param("customerId") Integer customerId);
 
@@ -51,7 +51,6 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
                 ON b.customer_id = e.customer_id
             """, nativeQuery = true)
     Object getBudgetsAfterExpenseRawGlobal(@Param("customerId") Integer customerId);
-
 
 
 }

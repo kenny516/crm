@@ -32,17 +32,17 @@ public interface ExpenseRepository extends JpaRepository<Expense, Integer> {
 
 
     @Query("""
-            SELECT SUM(e.amount)
+            SELECT COALESCE(SUM(e.amount), 0)
             FROM Ticket t
-            JOIN t.expense e
+            JOIN Expense e ON e.expenseId = t.expense.expenseId
             WHERE t.customer.customerId = :customerId
             """)
     Double sumExpenseTicketByCustomerID(@Param("customerId") Integer customerId);
 
     @Query("""
-            SELECT SUM(e.amount)
+            SELECT COALESCE(SUM(e.amount), 0)
             FROM Lead l
-            JOIN l.expense e
+            JOIN Expense e ON e.expenseId = l.expense.expenseId
             WHERE l.customer.customerId = :customerId
             """)
     Double sumExpenseLeadByCustomerID(@Param("customerId") Integer customerId);
