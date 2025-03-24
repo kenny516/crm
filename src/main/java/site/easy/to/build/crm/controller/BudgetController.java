@@ -22,7 +22,6 @@ public class BudgetController {
 
     private final BudgetService budgetService;
     private final CustomerService customerService;
-    private final AuthenticationUtils authenticationUtils;
 
     @GetMapping("/create/{customerId}")
     public String showCreateBudgetForm(@PathVariable("customerId") int customerId, Model model) {
@@ -53,10 +52,7 @@ public class BudgetController {
         if (customer == null) {
             return "error/not-found";
         }
-
-
         List<Budget> budgets = budgetService.findBudgetsByCustomerId(customerId);
-
         model.addAttribute("budgets", budgets);
         model.addAttribute("customer", customer);
 
