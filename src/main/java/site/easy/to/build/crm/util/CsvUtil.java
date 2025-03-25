@@ -24,7 +24,6 @@ public class CsvUtil {
 
     private final CsvMapper csvMapper = new CsvMapper();
     private final Validator validator;
-    private final UserService userService;
 
     public <T> List<T> read(Class<T> clazz, InputStream inputStream, StringBuilder errorMessage) throws IOException {
         csvMapper.enable(CsvParser.Feature.TRIM_SPACES);
