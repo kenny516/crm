@@ -123,11 +123,11 @@ public class BudgetService {
         return budgetDTOS;
     }
 
-    public Map<Integer, Double> getBudgetsByCustomer() {
+    public Map<String, Double> getBudgetsByCustomer() {
         List<Budget> budgets = budgetRepository.findAll();
         return budgets.stream()
                 .collect(Collectors.groupingBy(
-                        budget -> budget.getCustomer().getCustomerId(),
+                        budget -> budget.getCustomer().getName(),
                         Collectors.summingDouble(Budget::getAmount) // Additionner les montants
                 ));
     }

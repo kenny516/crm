@@ -39,7 +39,7 @@ public class Budget {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false )
     @JoinColumn(name = "customer_id")
     @NotNull(message = "Le client associé est obligatoire.")
     Customer customer;
