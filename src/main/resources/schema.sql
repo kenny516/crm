@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS budget
 (
     budget_id   int unsigned   NOT NULL AUTO_INCREMENT,
     title       varchar(255)   NOT NULL,
-    amount      decimal(10, 2) NOT NULL,
+    amount      decimal(15, 2) NOT NULL,
     start_date  date           NOT NULL,
     end_date    date           NOT NULL,
     customer_id int unsigned   NOT NULL,
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS budget
 CREATE TABLE IF NOT EXISTS expense
 (
     expense_id   int unsigned   NOT NULL AUTO_INCREMENT,
-    amount       decimal(10, 2) NOT NULL,
+    amount       decimal(15, 2) NOT NULL,
     date_expense date           NOT NULL,
     description  varchar(255) DEFAULT NULL,
     budget_id    int unsigned DEFAULT NULL,

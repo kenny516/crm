@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class BudgetDTO {
+public class  BudgetDTO {
     private Integer budgetId;
     private String title;
     private Double initialAmount;
