@@ -61,7 +61,7 @@ public class Lead {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "expense_id")
     private Expense expense;
 
