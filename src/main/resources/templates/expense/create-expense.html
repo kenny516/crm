@@ -83,15 +83,15 @@
                                             th:errors="*{description}"></span>
                                     </div>
 
-                                    <label class="m-t-20" for="budget">Budget:</label>
-                                    <div class="input-group">
-                                        <select id="budget" th:field="*{budget}" class="form-control"
-                                            >
-                                            <option value="" selected>- - Select a budget - -</option>
-                                            <option th:each="budgetDTO : ${budgetDTOS}" th:value="${budgetDTO.budgetId}"
-                                                th:text="${budgetDTO.currentAmount}+' - ' + ${budgetDTO.title} + ' - ' + ${budgetDTO.status}"></option>
-                                        </select>
-                                    </div>
+<!--                                    <label class="m-t-20" for="budget">Budget:</label>-->
+<!--                                    <div class="input-group">-->
+<!--                                        <select id="budget" th:field="*{budget}" class="form-control"-->
+<!--                                            >-->
+<!--                                            <option value="" selected>- - Select a budget - -</option>-->
+<!--                                            <option th:each="budgetDTO : ${budgetDTOS}" th:value="${budgetDTO.budgetId}"-->
+<!--                                                th:text="${budgetDTO.currentAmount}+' - ' + ${budgetDTO.title} + ' - ' + ${budgetDTO.status}"></option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
                                     <label class="m-t-20" for="date">Date :</label>
                                     <div class="input-group">
                                         <input type="date" id="date" th:field="*{dateExpense}" class="form-control"

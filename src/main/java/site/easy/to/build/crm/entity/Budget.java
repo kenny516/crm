@@ -1,6 +1,8 @@
 package site.easy.to.build.crm.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,7 @@ public class Budget {
     private String title;
 
     @Column(name = "amount")
+    @Positive(message = "Le montant doit être supérieur à 0.")
     private Double amount;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -38,6 +41,7 @@ public class Budget {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id")
+    @NotNull(message = "Le client associé est obligatoire.")
     Customer customer;
 
 }

@@ -1,15 +1,15 @@
 package site.easy.to.build.crm.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.Positive;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,18 +24,15 @@ public class Expense {
     private Integer expenseId;
 
     @Column(name = "description")
+    @Size(max = 255, message = "La description ne peut pas dépasser 255 caractères.")
     private String description;
 
     @Column(name = "amount")
-    @Positive
+    @Positive(message = "Amount must be positive.")
     private Double amount;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_expense")
     private LocalDate dateExpense;
-
-    @ManyToOne
-    @JoinColumn(name = "budget_id")
-    private Budget budget;
 
 }

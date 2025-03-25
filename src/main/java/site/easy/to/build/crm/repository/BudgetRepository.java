@@ -17,21 +17,21 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
             """)
     public double getTotalBudgetByCustomer(@Param("customerId") Integer customerId);
 
-    @Query(value = """
-            SELECT
-                    b.budget_id,
-                    b.title,
-                    b.amount,
-                    b.amount - COALESCE(SUM(e.amount), 0),
-                    b.start_date,
-                    b.end_date,
-                    b.customer_id
-            FROM budget b
-            LEFT JOIN crm.expense e ON b.budget_id = e.budget_id
-            WHERE b.customer_id = :customerId
-            GROUP BY b.budget_id, b.title, b.start_date, b.end_date, b.customer_id,b.amount
-            """, nativeQuery = true)
-    List<Object[]> getBudgetsAfterExpenseRaw(@Param("customerId") Integer customerId);
+//    @Query(value = """
+//            SELECT
+//                    b.budget_id,
+//                    b.title,
+//                    b.amount,
+//                    b.amount - COALESCE(SUM(e.amount), 0),
+//                    b.start_date,
+//                    b.end_date,
+//                    b.customer_id
+//            FROM budget b
+//            LEFT JOIN crm.expense e ON b.budget_id = e.budget_id
+//            WHERE b.customer_id = :customerId
+//            GROUP BY b.budget_id, b.title, b.start_date, b.end_date, b.customer_id,b.amount
+//            """, nativeQuery = true)
+//    List<Object[]> getBudgetsAfterExpenseRaw(@Param("customerId") Integer customerId);
 
 
 

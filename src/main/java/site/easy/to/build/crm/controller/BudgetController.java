@@ -1,8 +1,10 @@
 package site.easy.to.build.crm.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import site.easy.to.build.crm.entity.Budget;
 import site.easy.to.build.crm.entity.Customer;
@@ -37,7 +39,11 @@ public class BudgetController {
     }
 
     @PostMapping("/create-budget")
-    public String createBudget(@ModelAttribute("budget") Budget budget) {
+    public String createBudget(@Valid @ModelAttribute("budget") Budget budget, BindingResult bindingResult,Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("budget", budget);
+            return "budget/create-budget";
+        }
         try {
             budgetService.save(budget);
             return "redirect:/employee/customer/" + budget.getCustomer().getCustomerId();
