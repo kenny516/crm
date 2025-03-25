@@ -28,11 +28,6 @@ public class CustomerRestController {
         return ResponseEntity.ok(userService.findAll());
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<User> getLogin(@RequestParam String email) {
-        User user = userService.findByEmail(email);
-        return ResponseEntity.ok(user);
-    }
 
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestParam String email, @RequestParam String password) {
