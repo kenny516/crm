@@ -28,15 +28,11 @@ public class Expense {
     private String description;
 
     @Column(name = "amount")
-    @Positive(message = "Le montant doit être supérieur à 0.")
+    @Positive(message = "Amount must be positive.")
     private Double amount;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_expense")
     private LocalDate dateExpense;
-
-    @ManyToOne
-    @JoinColumn(name = "budget_id")
-    private Budget budget;
 
 }

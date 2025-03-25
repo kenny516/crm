@@ -42,7 +42,7 @@ public class ExpenseController {
             if (lead.getExpense() != null) {
                 expense = lead.getExpense();
             }
-            budgetDTOS = budgetService.getBudgetsAfterExpense(lead.getCustomer().getCustomerId());
+            //budgetDTOS = budgetService.getBudgetsAfterExpense(lead.getCustomer().getCustomerId());
             budgetDTOGlobal = budgetService.getBudgetDTOGlobal(lead.getCustomer().getCustomerId());
 
             model.addAttribute("leadId", leadId);
@@ -54,14 +54,14 @@ public class ExpenseController {
             if (ticket.getExpense() != null) {
                 expense = ticket.getExpense();
             }
-            budgetDTOS = budgetService.getBudgetsAfterExpense(ticket.getCustomer().getCustomerId());
+            //budgetDTOS = budgetService.getBudgetsAfterExpense(ticket.getCustomer().getCustomerId());
             budgetDTOGlobal = budgetService.getBudgetDTOGlobal(ticket.getCustomer().getCustomerId());
             model.addAttribute("ticketId", ticketId);
         } else {
             return "error/400";
         }
 
-        model.addAttribute("budgetDTOS", budgetDTOS);
+//        model.addAttribute("budgetDTOS", budgetDTOS);
         model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
         model.addAttribute("expense", expense);
         return "expense/create-expense";
@@ -73,7 +73,26 @@ public class ExpenseController {
             @RequestParam(required = false) Integer leadId,
             @RequestParam(required = false) Integer ticketId,
             Model model) {
-        System.out.println("error "+bindingResult.hasErrors());
+
+        if (bindingResult.hasErrors()){
+            BudgetDTO budgetDTOGlobal = new BudgetDTO();
+            if (leadId != null) {
+                Lead lead = leadService.findByLeadId(leadId);
+                if (lead == null) {
+                    return "error/not-found";
+                }
+                budgetDTOGlobal = budgetService.getBudgetDTOGlobal(lead.getCustomer().getCustomerId());
+            } else if (ticketId != null) {
+                Ticket ticket = ticketService.findByTicketId(ticketId);
+                if (ticket == null) {
+                    return "error/not-found";
+                }
+                budgetDTOGlobal = budgetService.getBudgetDTOGlobal(ticket.getCustomer().getCustomerId());
+            }
+            model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
+            model.addAttribute("expense", expense);
+            return "expense/create-expense";
+        }
 
         // Mettre à jour le lead ou le ticket selon le contexte
         if (leadId != null) {
