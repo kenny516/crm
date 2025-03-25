@@ -25,11 +25,6 @@ public class BudgetService {
     private CustomerService customerService;
     private ExpenseService expenseService;
 
-
-    public List<Budget> saveAll(List<Budget> budgets){
-        return budgetRepository.saveAll(budgets);
-    }
-
     public Budget findById(Integer id) {
         return budgetRepository.findById(id).orElse(null);
     }
@@ -128,7 +123,7 @@ public class BudgetService {
         return budgets.stream()
                 .collect(Collectors.groupingBy(
                         budget -> budget.getCustomer().getName(),
-                        Collectors.summingDouble(Budget::getAmount) // Additionner les montants
+                        Collectors.summingDouble(Budget::getAmount)
                 ));
     }
 
