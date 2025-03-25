@@ -329,9 +329,7 @@ CREATE TABLE IF NOT EXISTS expense
     date_expense date           NOT NULL,
     description  varchar(255) DEFAULT NULL,
     budget_id    int unsigned DEFAULT NULL,
-    PRIMARY KEY (expense_id),
-    KEY budget_id (budget_id),
-    CONSTRAINT expense_ibfk_1 FOREIGN KEY (budget_id) REFERENCES budget (budget_id)
+    PRIMARY KEY (expense_id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;

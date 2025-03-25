@@ -1,0 +1,4 @@
+customer_email,subject_or_name,type,status,expense
+customer1@yopmail.com,Lorem ipsum,lead,meeting-to-schedule,150000
+mail2@test.com,Correction bug #123,ticket,open,95000
+customer1@yopmail.com,Test avant,lead,archived,"68500.87"

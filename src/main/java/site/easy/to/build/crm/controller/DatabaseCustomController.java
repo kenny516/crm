@@ -16,12 +16,6 @@ import java.util.List;
 public class DatabaseCustomController {
     private final DatabaseCustomUtil databaseCustomUtil;
 
-    @GetMapping("/import")
-    public String importDatabase() {
-        System.out.println("Importing database...");
-        return "redirect:/";
-    }
-
     @GetMapping("/generate")
     public String showGenerateForm() {
         return "data-modifier/generate/generate-data";
@@ -30,7 +24,7 @@ public class DatabaseCustomController {
     @PostMapping("/generate")
     public String generateData(@RequestParam List<String> selectedTables,
             @RequestParam int recordCount) {
-        databaseCustomUtil.generateDataTable(selectedTables, recordCount);
+        //databaseCustomUtil.generateDataTable(selectedTables, recordCount);
         return "redirect:/database/generate?success=true";
     }
 
