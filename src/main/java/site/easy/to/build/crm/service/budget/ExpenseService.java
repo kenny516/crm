@@ -43,9 +43,9 @@ public class ExpenseService {
 
     ///  API
 
-    public Map<Integer, Double> getTicketExpensesByCustomer() {
+    public Map<String, Double> getTicketExpensesByCustomer() {
         List<Customer> customers = customerService.findAll();
-        Map<Integer, Double> customExpense = new HashMap<>();
+        Map<String, Double> customExpense = new HashMap<>();
         for (Customer customer : customers) {
             List<Ticket> ticketsCust = ticketService.findCustomerTickets(customer.getCustomerId());
             Double expense = 0.0;
@@ -54,23 +54,23 @@ public class ExpenseService {
                     expense += ticket.getExpense().getAmount();
                 }
             }
-            customExpense.put(customer.getCustomerId(), expense);
+            customExpense.put(customer.getName(), expense);
         }
         return customExpense;
     }
 
-    public Map<Integer, Double> getLeadExpensesByCustomer() {
+    public Map<String, Double> getLeadExpensesByCustomer() {
         List<Customer> customers = customerService.findAll();
-        Map<Integer, Double> customExpense = new HashMap<>();
+        Map<String, Double> customExpense = new HashMap<>();
         for (Customer customer : customers) {
-            List<Lead> leadsCust = leadService.getLeadsByCustomerId(customer.getCustomerId());
+            List<Lead> leadsCust = leadService.findLeadsByCustomerId(customer.getCustomerId());
             Double expense = 0.0;
             for (Lead lead : leadsCust) {
                 if (lead.getExpense() != null) {
                     expense += lead.getExpense().getAmount();
                 }
             }
-            customExpense.put(customer.getCustomerId(), expense);
+            customExpense.put(customer.getName(), expense);
         }
         return customExpense;
     }
