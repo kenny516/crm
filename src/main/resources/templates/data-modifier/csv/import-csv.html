@@ -47,7 +47,7 @@
                                 CSV files must adhere to the system's required format. Ensure your data is correctly formatted.
                             </div>
 <!--                            show error data expetion sql (foreign key etc)-->
-                            <div>
+                            <div th:if="${sqlError != null}" class="alert alert-danger">
                                 <p class="text-danger" th:if="${sqlError != null}" th:utext="${sqlError}"></p>
                             </div>
 
@@ -103,8 +103,8 @@
                 </div>
             </div>
         </div>
-        <div th:insert="~{/general/footer.html}"></div>
     </div>
+    <div th:insert="~{/general/footer.html}"></div>
 </div>
 
 <script th:src="@{/js/library/jquery-3.2.1.min.js}" type="text/javascript"></script>

@@ -63,20 +63,31 @@ public class DatabaseCustomUtil {
     ////////////////// CSV IMPORTATION
     ////////////////// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public List<CustomerLoginInfo> buildCustomer(List<CustomerDtoCsv> customerDtoCsvs) {
+    public List<CustomerLoginInfo> buildCustomer(List<CustomerDtoCsv> customerDtoCsvs, StringBuilder errorMessage) {
         User admin = userService.findFirst();
         List<CustomerLoginInfo> customerLoginInfos = new ArrayList<>();
-        for (CustomerDtoCsv customerDtoCsv : customerDtoCsvs) {
+        Set<String> uniqueEmails = new HashSet<>();
+        List<String> errors = new ArrayList<>();
+
+        for (int i = 0; i < customerDtoCsvs.size(); i++) {
+            CustomerDtoCsv customerDtoCsv = customerDtoCsvs.get(i);
+            String email = customerDtoCsv.getEmail();
+
+            if (!uniqueEmails.add(email)) {
+                errors.add(String.format("CustomerCSV Row %d: Duplicate email '%s' found.", i + 2, email));
+                continue;
+            }
+
             Customer customer = new Customer();
             customer.setName(customerDtoCsv.getName());
-            customer.setEmail(customerDtoCsv.getEmail());
+            customer.setEmail(email);
             customer.setPosition(faker.job().position());
             customer.setCountry(faker.address().country());
             customer.setCity(faker.address().city());
             customer.setUser(admin);
 
             CustomerLoginInfo customerLoginInfo = new CustomerLoginInfo();
-            customerLoginInfo.setEmail(customerDtoCsv.getEmail());
+            customerLoginInfo.setEmail(email);
             customerLoginInfo.setPasswordSet(true);
             String hashPassword = passwordEncoder.encode("2004");
             customerLoginInfo.setPassword(hashPassword);
@@ -86,9 +97,15 @@ public class DatabaseCustomUtil {
 
             customerLoginInfos.add(customerLoginInfo);
         }
+
+        if (!errors.isEmpty()) {
+            errorMessage.append("<ul>");
+            errors.forEach(error -> errorMessage.append("<li>").append(error).append("</li>"));
+            errorMessage.append("</ul>");
+        }
+
         return customerLoginInfos;
     }
-
     public List<Budget> buildBudget(List<BudgetDtoCsv> budgetDtoCsvs, HashMap<String, Integer> mapCustomer,
             StringBuilder errorMessage) {
         List<Budget> budgets = new ArrayList<>();
@@ -100,7 +117,7 @@ public class DatabaseCustomUtil {
             Integer customerId = mapCustomer.get(budgetDtoCsv.getCustomerEmail());
 
             if (customerId == null) {
-                errors.add(String.format("Row %d: Customer email '%s' not found for budget.", i + 2,
+                errors.add(String.format("BudgetCsv Row %d: Customer email '%s' not found for budget.", i + 2,
                         budgetDtoCsv.getCustomerEmail()));
             } else {
                 Customer customer = new Customer();
@@ -130,7 +147,7 @@ public class DatabaseCustomUtil {
         User admin = userService.findFirst();
         List<Ticket> tickets = new ArrayList<>();
         List<String> errors = new ArrayList<>();
-
+        String[] priorities = { "low","medium","high","closed","urgent","critical" };
         for (int i = 0; i < ticketLeadDtoCsvs.size(); i++) {
             TicketLeadDtoCsv ticketLeadDtoCsv = ticketLeadDtoCsvs.get(i);
             if (ticketLeadDtoCsv.getType().equalsIgnoreCase("ticket")
@@ -139,7 +156,7 @@ public class DatabaseCustomUtil {
                 Integer customerId = mapCustomer.get(ticketLeadDtoCsv.getCustomerEmail());
 
                 if (customerId == null) {
-                    errors.add(String.format("Row %d: Customer email '%s' not found for ticketLeadCsv.", i + 2,
+                    errors.add(String.format("ticketLeadCsv Row %d: Customer email '%s' not found.", i + 2,
                             ticketLeadDtoCsv.getCustomerEmail()));
                 } else {
                     Expense expense = new Expense();
@@ -153,7 +170,7 @@ public class DatabaseCustomUtil {
                     ticket.setSubject(ticketLeadDtoCsv.getSubjectOrName());
                     ticket.setDescription(faker.lorem().sentence());
                     ticket.setStatus(ticketLeadDtoCsv.getStatus());
-                    ticket.setPriority("critical");
+                    ticket.setPriority(priorities[ThreadLocalRandom.current().nextInt(0, priorities.length)]);
                     ticket.setCustomer(customer);
                     ticket.setManager(admin);
                     ticket.setEmployee(admin);
@@ -188,7 +205,7 @@ public class DatabaseCustomUtil {
                 Integer customerId = mapCustomer.get(ticketLeadDtoCsv.getCustomerEmail());
 
                 if (customerId == null) {
-                    errors.add(String.format("Row %d: Customer email '%s' not found for ticketLeadCsv.", i + 2,
+                    errors.add(String.format("ticketLeadCsv Row %d: Customer email '%s' not found.", i + 2,
                             ticketLeadDtoCsv.getCustomerEmail()));
                 } else {
                     Expense expense = new Expense();
@@ -227,7 +244,7 @@ public class DatabaseCustomUtil {
         HashMap<String, Integer> mapCustomer = new HashMap<>();
 
         // 1. Sauvegarde des clients
-        List<CustomerLoginInfo> customerLoginInfos = buildCustomer(customerDtoCsvs);
+        List<CustomerLoginInfo> customerLoginInfos = buildCustomer(customerDtoCsvs, errorMessage);
         for (CustomerLoginInfo customerLoginInfo : customerLoginInfos) {
             entityManager.persist(customerLoginInfo.getCustomer()); // Persist the customer first
             entityManager.persist(customerLoginInfo);
@@ -255,6 +272,213 @@ public class DatabaseCustomUtil {
         }
         if (!errorMessage.isEmpty()) {
             throw new SQLDataException(errorMessage.toString());
+        }
+    }
+
+    ////////////////// GÉNÉRATION DE DONNÉES ALÉATOIRES
+    ////////////////// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Génère des clients aléatoires avec Faker
+     *
+     * @param count Nombre de clients à générer
+     * @return Liste des CustomerLoginInfo générés
+     */
+    public List<CustomerLoginInfo> generateRandomCustomers(int count) {
+        User admin = userService.findFirst();
+        List<CustomerLoginInfo> customersInfos = new ArrayList<>();
+
+        for (int i = 0; i < count; i++) {
+            String username = faker.name().username();
+            String email = username.toLowerCase().replace(" ", "") + "@gmail.com";
+
+            Customer customer = new Customer();
+            customer.setName(username);
+            customer.setPosition(faker.company().profession());
+            customer.setEmail(email);
+            customer.setUser(admin);
+            customer.setCountry(faker.address().country());
+            customer.setCity(faker.address().city());
+
+            CustomerLoginInfo customerLoginInfo = new CustomerLoginInfo();
+            customerLoginInfo.setEmail(email);
+            customerLoginInfo.setPasswordSet(true);
+            String hashPassword = passwordEncoder.encode("2004");
+            customerLoginInfo.setPassword(hashPassword);
+            String token = EmailTokenUtils.generateToken();
+            customerLoginInfo.setToken(token);
+            customerLoginInfo.setCustomer(customer);
+
+            customersInfos.add(customerLoginInfo);
+        }
+        return customersInfos;
+    }
+
+    /**
+     * Génère des budgets aléatoires pour les clients existants
+     *
+     * @param customers Liste des clients
+     * @param count     Nombre de budgets à générer par client
+     * @return Liste des budgets générés
+     */
+    public List<Budget> generateRandomBudgets(List<Customer> customers, int count) {
+        List<Budget> budgets = new ArrayList<>();
+
+        for (Customer customer : customers) {
+            for (int i = 0; i < count; i++) {
+                Budget budget = new Budget();
+
+                budget.setTitle(faker.commerce().department() + " Budget");
+                // Montant aléatoire entre 1000 et 50000
+                double amount = 1000 + (Math.random() * 49000);
+                budget.setAmount((double) Math.round(amount * 100) / 100);
+
+                LocalDate now = LocalDate.now();
+                LocalDate startDate = now.minusDays(ThreadLocalRandom.current().nextInt(0, 60));
+                LocalDate endDate = startDate.plusMonths(ThreadLocalRandom.current().nextInt(1, 13));
+
+                budget.setStartDate(startDate);
+                budget.setEndDate(endDate);
+                budget.setCustomer(customer);
+
+                budgets.add(budget);
+            }
+        }
+        return budgets;
+    }
+
+    /**
+     * Génère des tickets aléatoires pour les clients existants
+     *
+     * @param customers Liste des clients
+     * @param count     Nombre de tickets à générer par client
+     * @return Liste des tickets générés
+     */
+    public List<Ticket> generateRandomTickets(List<Customer> customers, int count) {
+        User admin = userService.findFirst();
+        List<Ticket> tickets = new ArrayList<>();
+        String[] statuses = { "open","assigned","on-hold","in-progress","resolved","closed","reopened","pending-customer-response","escalated","archived" };
+        String[] priorities = { "low","medium","high","closed","urgent","critical" };
+
+        for (Customer customer : customers) {
+            for (int i = 0; i < count; i++) {
+                Ticket ticket = new Ticket();
+
+                Expense expense = new Expense();
+                // Montant aléatoire entre 50 et 2000
+                double expenseAmount = 50 + (Math.random() * 1950);
+                expense.setAmount((double) Math.round(expenseAmount * 100) / 100);
+                expense.setDateExpense(LocalDate.now().minusDays(ThreadLocalRandom.current().nextInt(0, 30)));
+                expense.setDescription(faker.lorem().sentence());
+
+                ticket.setSubject(faker.lorem().sentence(3, 3));
+                ticket.setDescription(faker.lorem().paragraph());
+                ticket.setStatus(statuses[ThreadLocalRandom.current().nextInt(0, statuses.length)]);
+                ticket.setPriority(priorities[ThreadLocalRandom.current().nextInt(0, priorities.length)]);
+                ticket.setCustomer(customer);
+                ticket.setManager(admin);
+                ticket.setEmployee(admin);
+                ticket.setCreatedAt(LocalDateTime.now().minusDays(ThreadLocalRandom.current().nextInt(0, 30)));
+                ticket.setExpense(expense);
+
+                tickets.add(ticket);
+            }
+        }
+        return tickets;
+    }
+
+    /**
+     * Génère des leads aléatoires pour les clients existants
+     *
+     * @param customers Liste des clients
+     * @param count     Nombre de leads à générer par client
+     * @return Liste des leads générés
+     */
+    public List<Lead> generateRandomLeads(List<Customer> customers, int count) {
+        User admin = userService.findFirst();
+        List<Lead> leads = new ArrayList<>();
+        String[] statuses = { "meeting-to-schedule","scheduled","archived","success","assign-to-sales"};
+
+        for (Customer customer : customers) {
+            for (int i = 0; i < count; i++) {
+                Lead lead = new Lead();
+
+                Expense expense = new Expense();
+                // Montant aléatoire entre 50 et 1000
+                double expenseAmount = 50 + (Math.random() * 950);
+                expense.setAmount((double) Math.round(expenseAmount * 100) / 100);
+                expense.setDateExpense(LocalDate.now().minusDays(ThreadLocalRandom.current().nextInt(0, 30)));
+                expense.setDescription(faker.lorem().sentence());
+
+                lead.setCustomer(customer);
+                lead.setManager(admin);
+                lead.setName(faker.company().name() + " Opportunity");
+                lead.setEmployee(admin);
+                lead.setStatus(statuses[ThreadLocalRandom.current().nextInt(0, statuses.length)]);
+                lead.setCreatedAt(LocalDateTime.now().minusDays(ThreadLocalRandom.current().nextInt(0, 60)));
+                lead.setExpense(expense);
+
+                leads.add(lead);
+            }
+        }
+        return leads;
+    }
+
+    /**
+     * Génère et sauvegarde des données aléatoires pour le CRM
+     *
+     * @param customerCount     Nombre de clients à générer
+     * @param budgetPerCustomer Nombre de budgets par client
+     * @param ticketPerCustomer Nombre de tickets par client
+     * @param leadPerCustomer   Nombre de leads par client
+     * @return Map contenant les statistiques des données générées
+     * @throws SQLDataException si une erreur survient pendant la sauvegarde
+     */
+    @Transactional(rollbackFor = SQLDataException.class)
+    public Map<String, Integer> generateAndSaveRandomData(int customerCount, int budgetPerCustomer,
+            int ticketPerCustomer, int leadPerCustomer) throws SQLDataException {
+        try {
+            // 1. Générer et sauvegarder les clients
+            List<CustomerLoginInfo> customerLoginInfos = generateRandomCustomers(customerCount);
+            List<Customer> customers = new ArrayList<>();
+
+            for (CustomerLoginInfo customerLoginInfo : customerLoginInfos) {
+                entityManager.persist(customerLoginInfo.getCustomer());
+                entityManager.persist(customerLoginInfo);
+                customers.add(customerLoginInfo.getCustomer());
+            }
+
+            // 2. Générer et sauvegarder les budgets
+            List<Budget> budgets = generateRandomBudgets(customers, budgetPerCustomer);
+            for (Budget budget : budgets) {
+                entityManager.persist(budget);
+            }
+
+            // 3. Générer et sauvegarder les tickets
+            List<Ticket> tickets = generateRandomTickets(customers, ticketPerCustomer);
+            for (Ticket ticket : tickets) {
+                entityManager.persist(ticket.getExpense());
+                entityManager.persist(ticket);
+            }
+
+            // 4. Générer et sauvegarder les leads
+            List<Lead> leads = generateRandomLeads(customers, leadPerCustomer);
+            for (Lead lead : leads) {
+                entityManager.persist(lead.getExpense());
+                entityManager.persist(lead);
+            }
+
+            // 5. Retourner des statistiques sur les données générées
+            Map<String, Integer> stats = new HashMap<>();
+            stats.put("customers", customers.size());
+            stats.put("budgets", budgets.size());
+            stats.put("tickets", tickets.size());
+            stats.put("leads", leads.size());
+
+            return stats;
+
+        } catch (Exception e) {
+            throw new SQLDataException("Erreur lors de la génération de données aléatoires: " + e.getMessage());
         }
     }
 }
