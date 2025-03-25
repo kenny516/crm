@@ -11,11 +11,13 @@
                              th:src="${#authentication.principal.picture}" alt="user-img" class="img-circle">
                         <img th:if="${#authentication.principal instanceof T(org.springframework.security.core.userdetails.User)}"
                              th:src="@{/images/pp.png}" class="img-circle">
-                        <span th:if="${#authentication.principal instanceof T(org.springframework.security.oauth2.core.user.OAuth2User)}"
-                              class="hide-menu"
-                              th:text="${#authentication.principal.givenName + ' ' +  #authentication.principal.familyName}"></span>
-                        <span th:if="${#authentication.principal instanceof T(org.springframework.security.core.userdetails.User)}"
-                              class="hide-menu" th:text="${#authentication.principal.username}"></span>
+                        <span
+                                th:if="${#authentication.principal instanceof T(org.springframework.security.oauth2.core.user.OAuth2User)}"
+                                class="hide-menu"
+                                th:text="${#authentication.principal.givenName + ' ' +  #authentication.principal.familyName}"></span>
+                        <span
+                                th:if="${#authentication.principal instanceof T(org.springframework.security.core.userdetails.User)}"
+                                class="hide-menu" th:text="${#authentication.principal.username}"></span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a th:href="${home + 'employee/profile'}"><i class="ti-user"></i> My Profile</a></li>
@@ -227,32 +229,32 @@
                     </a>
                 </li>
             </ul>
-            <div style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); text-align: center; max-width: 400px; width: 100%;">
+            <ul id="sidebarnav"
+                th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'') or hasRole(''ROLE_EMPLOYEE'')')}">
 
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <div th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
-                        <a href="/database/generate" class="link">
-                            <button style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
-                                Generate Data
-                            </button>
-                        </a>
-                    </div>
-                    <div th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
-                        <a href="/database/import" class="link">
-                            <button style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
-                                Import Data
-                            </button>
-                        </a>
-                    </div>
-                    <div th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
-                        <a href="/database/reset" class="link">
-                            <button style="width: 100%; padding: 10px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
-                                Reset Data
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                <!-- ... (les autres éléments existants de la sidebar) ... -->
+
+                <li class="nav-small-cap">--- Database Management</li>
+                <li th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+                    <a class="waves-effect waves-dark" th:href="${home + 'database/generate'}">
+                        <i class="fas fa-database"></i>
+                        <span class="hide-menu">Generate Data</span>
+                    </a>
+                </li>
+                <li th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+                    <a class="waves-effect waves-dark" th:href="${home + 'csv/import'}">
+                        <i class="fas fa-file-import"></i>
+                        <span class="hide-menu">Import Data</span>
+                    </a>
+                </li>
+                <li th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+                    <a class="waves-effect waves-dark" th:href="${home + 'database/reset'}">
+                        <i class="fas fa-trash-alt"></i>
+                        <span class="hide-menu">Reset Data</span>
+                    </a>
+                </li>
+
+            </ul>
 
         </nav>
         <!-- End Sidebar navigation -->
