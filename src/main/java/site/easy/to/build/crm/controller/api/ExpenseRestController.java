@@ -28,7 +28,7 @@ public class ExpenseRestController {
         return ResponseEntity.ok(expenseService.findAll());
     }
 
-    @PutMapping("/update-expense")
+    @PutMapping("/update")
     public ResponseEntity<Expense> updateExpense(@RequestBody Expense expense) {
         Expense expenseVerif = expenseService.findById(expense.getExpenseId());
         if (expenseVerif == null) {

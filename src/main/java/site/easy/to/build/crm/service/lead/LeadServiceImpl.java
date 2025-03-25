@@ -96,7 +96,7 @@ public class LeadServiceImpl implements LeadService {
     }
 
     @Override
-    public List<Lead> getLeadsByCustomerId(int customerId){
+    public List<Lead> findLeadsByCustomerId(int customerId){
         return leadRepository.findByCustomerCustomerId(customerId);
     }
 }

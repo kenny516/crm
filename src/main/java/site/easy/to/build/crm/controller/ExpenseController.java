@@ -31,7 +31,7 @@ public class ExpenseController {
     @GetMapping("/create")
     public String showCreateForm(@RequestParam(required = false) Integer leadId,@RequestParam(required = false) Integer ticketId,Model model) {
 
-        List<BudgetDTO> budgetDTOS = new ArrayList<>();
+//        List<BudgetDTO> budgetDTOS = new ArrayList<>();
         BudgetDTO budgetDTOGlobal = new BudgetDTO();
         Expense expense = new Expense();
         if (leadId != null) {
@@ -93,7 +93,6 @@ public class ExpenseController {
             model.addAttribute("expense", expense);
             return "expense/create-expense";
         }
-
         // Mettre à jour le lead ou le ticket selon le contexte
         if (leadId != null) {
             Lead lead = leadService.findByLeadId(leadId);

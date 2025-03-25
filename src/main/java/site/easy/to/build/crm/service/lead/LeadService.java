@@ -32,6 +32,6 @@ public interface LeadService {
     List<Lead> getRecentCustomerLeads(int customerId, int limit);
     public void deleteAllByCustomer(Customer customer);
 
-    public List<Lead> getLeadsByCustomerId(int customerId);
+    public List<Lead> findLeadsByCustomerId(int customerId);
 
 }

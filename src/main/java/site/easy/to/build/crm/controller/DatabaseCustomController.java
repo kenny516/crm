@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import site.easy.to.build.crm.util.DatabaseCustomUtil;
 
-import java.util.List;
+import java.sql.SQLDataException;
+import java.util.Map;
 
 @AllArgsConstructor
 @Controller
@@ -22,9 +23,15 @@ public class DatabaseCustomController {
     }
 
     @PostMapping("/generate")
-    public String generateData(@RequestParam List<String> selectedTables,
-            @RequestParam int recordCount) {
-        //databaseCustomUtil.generateDataTable(selectedTables, recordCount);
+    public String generateData(
+            @RequestParam int customerCount,
+            @RequestParam int budgetPerCustomer,
+            @RequestParam int ticketPerCustomer,
+            @RequestParam int leadPerCustomer) throws SQLDataException {
+
+        Map<String, Integer> results = databaseCustomUtil.generateAndSaveRandomData(
+                customerCount, budgetPerCustomer, ticketPerCustomer, leadPerCustomer);
+
         return "redirect:/database/generate?success=true";
     }
 

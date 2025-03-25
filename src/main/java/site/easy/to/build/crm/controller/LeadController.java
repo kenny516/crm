@@ -642,34 +642,4 @@ public class LeadController {
         model.addAttribute("hasGoogleDriveAccess", hasGoogleDriveAccess);
     }
 
-    @PostMapping("/update-expense")
-    public String updateLeadExpense(@RequestParam("leadId") int leadId,@RequestParam("expenseId") int expenseId,Authentication authentication) {
-        int userId = authenticationUtils.getLoggedInUserId(authentication);
-        User loggedInUser = userService.findById(userId);
-        if (loggedInUser.isInactiveUser()) {
-            return "error/account-inactive";
-        }
-
-        Lead lead = leadService.findByLeadId(leadId);
-        if (lead == null) {
-            return "error/not-found";
-        }
-
-        User employee = lead.getEmployee();
-        if (!AuthorizationUtil.checkIfUserAuthorized(employee, loggedInUser)
-                && !AuthorizationUtil.hasRole(authentication, "ROLE_MANAGER")) {
-            return "error/access-denied";
-        }
-
-        Expense expense = expenseService.findById(expenseId);
-        if (expense == null) {
-            return "error/not-found";
-        }
-
-        lead.setExpense(expense);
-        leadService.save(lead);
-
-        return "redirect:/employee/lead/show/" + leadId;
-    }
-
 }

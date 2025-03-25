@@ -38,7 +38,7 @@ public class TicketRestController {
 
         Expense expense = expenseService.findById(ticket.getExpense().getExpenseId());
         if (expense == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok().build();
         } else {
             expenseService.delete(expense);
         }
