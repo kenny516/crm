@@ -89,6 +89,7 @@ public class ExpenseController {
                 }
                 budgetDTOGlobal = budgetService.getBudgetDTOGlobal(ticket.getCustomer().getCustomerId());
             }
+            System.out.println(budgetDTOGlobal.getStatus());
             model.addAttribute("budgetDTOGlobal", budgetDTOGlobal);
             model.addAttribute("expense", expense);
             return "expense/create-expense";

@@ -12,6 +12,7 @@ import site.easy.to.build.crm.DTO.BudgetDtoCsv;
 import site.easy.to.build.crm.DTO.CustomerDtoCsv;
 import site.easy.to.build.crm.DTO.TicketLeadDtoCsv;
 import site.easy.to.build.crm.entity.*;
+import site.easy.to.build.crm.service.customer.CustomerService;
 import site.easy.to.build.crm.service.user.UserService;
 
 import java.sql.SQLDataException;
@@ -31,6 +32,7 @@ public class DatabaseCustomUtil {
     private EntityManager entityManager;
     // service
     private UserService userService;
+    private CustomerService customerService;
 
     @Transactional
     public void resetDatabase() {
@@ -72,7 +74,10 @@ public class DatabaseCustomUtil {
         for (int i = 0; i < customerDtoCsvs.size(); i++) {
             CustomerDtoCsv customerDtoCsv = customerDtoCsvs.get(i);
             String email = customerDtoCsv.getEmail();
-
+            if (customerService.findByEmail(email) != null) {
+                errors.add(String.format("CustomerCSV Row %d: Duplicate email in Database '%s' found.", i + 2, email));
+                continue;
+            }
             if (!uniqueEmails.add(email)) {
                 errors.add(String.format("CustomerCSV Row %d: Duplicate email '%s' found.", i + 2, email));
                 continue;
@@ -203,7 +208,6 @@ public class DatabaseCustomUtil {
                     || ticketLeadDtoCsv.getType().equalsIgnoreCase("leads")) {
                 Lead lead = new Lead();
                 Integer customerId = mapCustomer.get(ticketLeadDtoCsv.getCustomerEmail());
-
                 if (customerId == null) {
                     errors.add(String.format("ticketLeadCsv Row %d: Customer email '%s' not found.", i + 2,
                             ticketLeadDtoCsv.getCustomerEmail()));
