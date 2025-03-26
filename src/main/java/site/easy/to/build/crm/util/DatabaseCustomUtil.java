@@ -10,9 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import site.easy.to.build.crm.DTO.BudgetDtoCsv;
 import site.easy.to.build.crm.DTO.CustomerDtoCsv;
+import site.easy.to.build.crm.DTO.ExportDTO;
 import site.easy.to.build.crm.DTO.TicketLeadDtoCsv;
 import site.easy.to.build.crm.entity.*;
+import site.easy.to.build.crm.service.budget.BudgetService;
+import site.easy.to.build.crm.service.customer.CustomerLoginInfoService;
 import site.easy.to.build.crm.service.customer.CustomerService;
+import site.easy.to.build.crm.service.lead.LeadService;
+import site.easy.to.build.crm.service.ticket.TicketService;
 import site.easy.to.build.crm.service.user.UserService;
 
 import java.sql.SQLDataException;
@@ -33,6 +38,10 @@ public class DatabaseCustomUtil {
     // service
     private UserService userService;
     private CustomerService customerService;
+    private LeadService leadService;
+    private TicketService ticketService;
+    private BudgetService budgetService;
+    private CustomerLoginInfoService customerLoginInfoService;
 
     @Transactional
     public void resetDatabase() {
@@ -485,4 +494,65 @@ public class DatabaseCustomUtil {
             throw new SQLDataException("Erreur lors de la génération de données aléatoires: " + e.getMessage());
         }
     }
+
+
+    public ExportDTO exportDTO(Integer customerId){
+        User admin = userService.findFirst();
+        Customer customer = customerService.findByCustomerId(customerId);
+        CustomerLoginInfo customerLogin = customerLoginInfoService.findByEmail(customer.getEmail());
+        List<Budget> budgets = budgetService.findBudgetsByCustomerId(customerId);
+        List<Lead> leads = leadService.findLeadsByCustomerId(customerId);
+        List<Ticket> tickets = ticketService.findCustomerTickets(customerId);
+
+        String name = faker.name().username();
+        customerLogin.setId(null);
+        customerLogin.setEmail("copy_"+customer.getEmail());
+        customer.setName("copy_"+customer.getName());
+        customerLogin.setCustomer(customer);
+        String token = EmailTokenUtils.generateToken();
+        customerLogin.setToken(token);
+        customerLogin.getCustomer().setEmail(name+"@gmail.com");
+        customerLogin.getCustomer().setCustomerId(null);
+
+
+
+
+
+        ExportDTO exportDTO = new ExportDTO();
+        exportDTO.setCustomerLoginInfo(customerLogin);
+        exportDTO.setBudgets(budgets);
+        exportDTO.setLeads(leads);
+        exportDTO.setTickets(tickets);
+        return exportDTO;
+    }
+
+    @Transactional(rollbackFor = SQLDataException.class)
+    public void saveExportDto(ExportDTO exportDTO){
+
+        CustomerLoginInfo customerLoginInfo =  exportDTO.getCustomerLoginInfo();
+        entityManager.persist(customerLoginInfo);
+
+        List<Budget> budgets = exportDTO.getBudgets();
+        for (Budget budget : budgets) {
+            budget.setBudgetId(null);
+            budget.setCustomer(customerLoginInfo.getCustomer());
+            entityManager.persist(budget);
+        }
+        List<Lead> leads = exportDTO.getLeads();
+        for (Lead lead : leads) {
+            lead.setLeadId(null);
+            lead.getExpense().setExpenseId(null);
+            lead.setCustomer(customerLoginInfo.getCustomer());
+            entityManager.persist(lead);
+        }
+
+        List<Ticket> tickets = exportDTO.getTickets();
+        for (Ticket ticket : tickets) {
+            ticket.setTicketId(null);
+            ticket.getExpense().setExpenseId(null);
+            ticket.setCustomer(customerLoginInfo.getCustomer());
+            entityManager.persist(ticket);
+        }
+    }
+
 }
