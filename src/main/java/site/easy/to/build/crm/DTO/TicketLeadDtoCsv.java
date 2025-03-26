@@ -42,11 +42,13 @@ public class TicketLeadDtoCsv  {
     @AssertTrue(message = "Status is invalid for the provided type")
     public boolean isStatusValid() {
         if ("ticket".equalsIgnoreCase(type) || "tickets".equalsIgnoreCase(type)) {
-             return status.matches("^(open|assigned|on-hold|in-progress|resolved|closed|reopened|pending-customer-response|escalated|archived)$");
+            setStatus("open");
+             //return status.matches("^(open|assigned|on-hold|in-progress|resolved|closed|reopened|pending-customer-response|escalated|archived)$");
         } else if ("lead".equalsIgnoreCase(type) || "leads".equalsIgnoreCase(type)) {
-            return status.matches("^(meeting-to-schedule|scheduled|archived|success|assign-to-sales)$");
+            setStatus("scheduled");
+            //return status.matches("^(meeting-to-schedule|scheduled|archived|success|assign-to-sales)$");
         }
-        return false;
+        return true;
     }
 
 }
