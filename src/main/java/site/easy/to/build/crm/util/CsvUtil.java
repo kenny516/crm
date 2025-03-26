@@ -16,6 +16,7 @@ import site.easy.to.build.crm.service.user.UserService;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -28,6 +29,7 @@ public class CsvUtil {
     public <T> List<T> read(Class<T> clazz, InputStream inputStream, StringBuilder errorMessage) throws IOException {
         csvMapper.enable(CsvParser.Feature.TRIM_SPACES);
         csvMapper.enable(CsvParser.Feature.ALLOW_COMMENTS);
+        csvMapper.setLocale(Locale.FRANCE);
         CsvSchema csvSchema = csvMapper.schemaFor(clazz).withHeader().withColumnSeparator(',');
         MappingIterator<T> mappingIterator = csvMapper.readerFor(clazz).with(csvSchema).readValues(inputStream);
 
