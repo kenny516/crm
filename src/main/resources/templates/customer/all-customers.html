@@ -91,6 +91,7 @@
                                             <th>Phone</th>
                                             <th>Country</th>
                                             <th>Show Full Details</th>
+                                            <th>Copy</th>
                                             <th th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">Delete</th>
                                         </tr>
                                     </thead>
@@ -101,7 +102,14 @@
                                             <td th:text="${customer.email}"></td>
                                             <td th:text="${customer.phone}"></td>
                                             <td th:text="${customer.country}"></td>
-                                            <td><a th:href="${home + 'employee/customer/' + customer.customerId}"><i class="fas fa-eye"></i></a></td>
+                                            <td>
+                                                <a th:href="${home + 'employee/customer/' + customer.customerId}"><i class="fas fa-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <a th:href="${home + 'export/' + customer.customerId}" class="btn btn-info btn-sm ml-2" title="Export customer data">
+                                                    <i class="fas fa-file-export"></i> Export
+                                                </a>
+                                            </td>
                                             <td th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
                                                 <form th:action="${home + 'employee/customer/delete-customer/' + customer.customerId}" method="post">
                                                     <button type="submit" class="btn btn-primary">

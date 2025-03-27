@@ -1,0 +1,2654 @@
+{
+  "customerLoginInfo": {
+    "id": null,
+    "password": "$2a$10$66KDilibYvxiaFcooiia0Ol5/TKZaLtIc8QpA1gbY0O9AN58fUKqW",
+    "token": "57f19120-7bff-4dc0-956a-2c586b1ed253",
+    "passwordSet": true,
+    "customer": {
+      "customerId": null,
+      "name": "copy_Michelle Orr",
+      "email": "nedra.ruecker@gmail.com",
+      "position": "Producer",
+      "phone": null,
+      "address": null,
+      "city": "Lindsaytown",
+      "state": null,
+      "country": "Mozambique",
+      "description": null,
+      "twitter": null,
+      "facebook": null,
+      "youtube": null,
+      "user": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "createdAt": null
+    },
+    "email": "copy_mathissusan@hotmail.com"
+  },
+  "tickets": [
+    {
+      "ticketId": 4,
+      "subject": "Leverage end-to-end action-items",
+      "description": "Non vel quam hic quasi.",
+      "status": "open",
+      "priority": "low",
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 4,
+        "description": "Culpa impedit at incidunt cumque.",
+        "amount": 4233.12,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "ticketId": 18,
+      "subject": "Seize intuitive paradigms",
+      "description": "Tempore vitae enim iusto.",
+      "status": "open",
+      "priority": "closed",
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 18,
+        "description": "Aut et dolor.",
+        "amount": 8354.8,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "ticketId": 21,
+      "subject": "Revolutionize b2c web-readiness",
+      "description": "Impedit cumque ab tempora atque.",
+      "status": "open",
+      "priority": "critical",
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 21,
+        "description": "Eius modi est est maxime pariatur ut est.",
+        "amount": 525.47,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "ticketId": 53,
+      "subject": "Evolve robust partnerships",
+      "description": "Dolores aut nobis ipsa beatae iste dolores.",
+      "status": "open",
+      "priority": "high",
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 53,
+        "description": "Et tempora aut nesciunt aliquam at debitis.",
+        "amount": 3826.25,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "ticketId": 64,
+      "subject": "Seize collaborative interfaces",
+      "description": "Eos soluta magnam.",
+      "status": "open",
+      "priority": "urgent",
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 64,
+        "description": "Molestias perferendis alias natus quia vero esse.",
+        "amount": 7842.68,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "ticketId": 68,
+      "subject": "Re-intermediate clicks-and-mortar niches",
+      "description": "In qui sit dolor.",
+      "status": "open",
+      "priority": "closed",
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 68,
+        "description": "Odit molestiae harum consequatur quisquam voluptatum.",
+        "amount": 6433.08,
+        "dateExpense": "2025-03-26"
+      }
+    }
+  ],
+  "leads": [
+    {
+      "leadId": 19,
+      "name": "Morph proactive deliverables",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 98,
+        "description": "Saepe nesciunt recusandae.",
+        "amount": 7929.32,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "leadId": 27,
+      "name": "Reinvent ubiquitous initiatives",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 106,
+        "description": "Occaecati eum omnis.",
+        "amount": 3161.59,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "leadId": 35,
+      "name": "Engineer viral technologies",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 114,
+        "description": "Repellat dolores quis non eius magni.",
+        "amount": 7753.53,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "leadId": 48,
+      "name": "Whiteboard vertical initiatives",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 127,
+        "description": "Velit porro repellendus cupiditate.",
+        "amount": 3388.69,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "leadId": 62,
+      "name": "Redefine viral systems",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 141,
+        "description": "Et tempora modi enim incidunt.",
+        "amount": 7172.32,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "leadId": 63,
+      "name": "Seize integrated e-commerce",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 142,
+        "description": "Voluptatem maiores dolorem earum.",
+        "amount": 1245.05,
+        "dateExpense": "2025-03-26"
+      }
+    },
+    {
+      "leadId": 67,
+      "name": "Evolve viral relationships",
+      "status": "scheduled",
+      "phone": null,
+      "meetingId": null,
+      "googleDrive": null,
+      "googleDriveFolderId": null,
+      "leadActions": [],
+      "files": [],
+      "googleDriveFiles": [],
+      "manager": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "employee": {
+        "id": 52,
+        "username": "kenshykenshu",
+        "email": "kenshykenshu@gmail.com",
+        "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+        "status": "active",
+        "token": null,
+        "hireDate": null,
+        "createdAt": "2025-03-22T14:03:53",
+        "updatedAt": null,
+        "oauthUser": {
+          "id": 28,
+          "grantedScopes": [
+            "openid",
+            "profile",
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "email"
+          ],
+          "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+          "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "accessTokenExpiration": "2025-03-26T19:26:33Z",
+          "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+          "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+          "refreshTokenExpiration": null,
+          "email": "kenshykenshu@gmail.com"
+        },
+        "roles": [
+          {
+            "id": 1,
+            "name": "ROLE_MANAGER"
+          }
+        ],
+        "userProfile": {
+          "id": 33,
+          "firstName": "Kenshy",
+          "lastName": "Kenshu",
+          "country": null,
+          "phone": null,
+          "position": null,
+          "department": null,
+          "salary": null,
+          "status": "active",
+          "facebook": null,
+          "twitter": null,
+          "youtube": null,
+          "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+          "userImage": null,
+          "bio": null,
+          "address": null
+        },
+        "passwordSet": true,
+        "inactiveUser": false
+      },
+      "customer": {
+        "customerId": null,
+        "name": "copy_Michelle Orr",
+        "email": "nedra.ruecker@gmail.com",
+        "position": "Producer",
+        "phone": null,
+        "address": null,
+        "city": "Lindsaytown",
+        "state": null,
+        "country": "Mozambique",
+        "description": null,
+        "twitter": null,
+        "facebook": null,
+        "youtube": null,
+        "user": {
+          "id": 52,
+          "username": "kenshykenshu",
+          "email": "kenshykenshu@gmail.com",
+          "password": "$2a$10$UigUoy/EX2YvDjfRXTf36.UKkqtqHhvu.6zJx7a0Os9equ0O41JFW",
+          "status": "active",
+          "token": null,
+          "hireDate": null,
+          "createdAt": "2025-03-22T14:03:53",
+          "updatedAt": null,
+          "oauthUser": {
+            "id": 28,
+            "grantedScopes": [
+              "openid",
+              "profile",
+              "https://www.googleapis.com/auth/calendar",
+              "https://www.googleapis.com/auth/drive.file",
+              "https://www.googleapis.com/auth/gmail.modify",
+              "email"
+            ],
+            "accessToken": "ya29.a0AeXRPp7KGSp0_va4o6IOt-POeZ7dzg4ZM9K-m-xfgR52I1dTtN-po6Ni5U1F6JF9Je3BrakRa91gXguroXN4VMoq1FonrFqN1xxSDw8i7BWB1IdnpR-jd3Sv2acTbcoY4BtpB-znkxMaI9ZjHsMmOMWDYRr0MAFsiC7WdwBh7AaCgYKAfESARASFQHGX2MiJ1V5EoX5wmu-bPZUi0Gw6A0177",
+            "accessTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "accessTokenExpiration": "2025-03-26T19:26:33Z",
+            "refreshToken": "1//03RIX8E2XWTNKCgYIARAAGAMSNwF-L9Irp2aCp7pjKjLjNOBZJCHkfxPM9m7NCAF0B23_0gpzj1tcx9B4nSQ9NTCpGKnbDzOniV8",
+            "refreshTokenIssuedAt": "2025-03-22T11:03:53Z",
+            "refreshTokenExpiration": null,
+            "email": "kenshykenshu@gmail.com"
+          },
+          "roles": [
+            {
+              "id": 1,
+              "name": "ROLE_MANAGER"
+            }
+          ],
+          "userProfile": {
+            "id": 33,
+            "firstName": "Kenshy",
+            "lastName": "Kenshu",
+            "country": null,
+            "phone": null,
+            "position": null,
+            "department": null,
+            "salary": null,
+            "status": "active",
+            "facebook": null,
+            "twitter": null,
+            "youtube": null,
+            "oathUserImageLink": "https://lh3.googleusercontent.com/a/ACg8ocI4y0l1PoBp0zyoRKXw3c3ttKN8cQWAl08GOETk4GoxYQ5j_Q=s96-c",
+            "userImage": null,
+            "bio": null,
+            "address": null
+          },
+          "passwordSet": true,
+          "inactiveUser": false
+        },
+        "createdAt": null
+      },
+      "createdAt": "2025-03-26T21:46:59",
+      "expense": {
+        "expenseId": 146,
+        "description": "Est qui accusamus similique deleniti eius delectus.",
+        "amount": 4156.29,
+        "dateExpense": "2025-03-26"
+      }
+    }
+  ]
+}

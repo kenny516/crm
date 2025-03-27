@@ -13,7 +13,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ticket_id")
-    private int ticketId;
+    private Integer ticketId;
 
     @Column(name = "subject")
     @NotBlank(message = "Subject is required")
@@ -48,10 +48,15 @@ public class Ticket {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "expense_id")
+    private Expense expense;
+
     public Ticket() {
     }
 
-    public Ticket(String subject, String description, String status, String priority, User manager, User employee, Customer customer, LocalDateTime createdAt) {
+    public Ticket(int ticketId, String subject, String description, String status, String priority, User manager, User employee, Customer customer, LocalDateTime createdAt, Expense expense) {
+        this.ticketId = ticketId;
         this.subject = subject;
         this.description = description;
         this.status = status;
@@ -60,13 +65,14 @@ public class Ticket {
         this.employee = employee;
         this.customer = customer;
         this.createdAt = createdAt;
+        this.expense = expense;
     }
 
     public int getTicketId() {
         return ticketId;
     }
 
-    public void setTicketId(int ticketId) {
+    public void setTicketId(Integer ticketId) {
         this.ticketId = ticketId;
     }
 
@@ -132,5 +138,13 @@ public class Ticket {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Expense getExpense() {
+        return expense;
+    }
+
+    public void setExpense(Expense expense) {
+        this.expense = expense;
     }
 }

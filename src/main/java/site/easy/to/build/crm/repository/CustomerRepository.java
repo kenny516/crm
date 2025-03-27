@@ -2,6 +2,7 @@ package site.easy.to.build.crm.repository;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import site.easy.to.build.crm.entity.Customer;
 
@@ -21,4 +22,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     public List<Customer> findByUserIdOrderByCreatedAtDesc(int userId, Pageable pageable);
 
     long countByUserId(int userId);
+
+
+
 }

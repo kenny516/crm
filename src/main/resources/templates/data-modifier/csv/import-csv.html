@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="~{/general/head.html}"></div>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<link th:href="@{/css/style.min.css}" rel="stylesheet">
+<link th:href="@{/css/pages/inbox.css}" rel="stylesheet">
+
+<body class="skin-blue fixed-layout">
+<div class="preloader">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">CRM</p>
+    </div>
+</div>
+
+<div id="main-wrapper">
+    <div th:insert="~{/general/header.html}"></div>
+    <div th:insert="~{/general/left-sidebar.html}"></div>
+
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h4 class="text-themecolor">Data Import</h4>
+                </div>
+                <div class="col-md-7 align-self-center text-right">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">CSV Import</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">CSV File Import</h4>
+                            <h6 class="card-subtitle">Upload your data files in CSV format</h6>
+
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                CSV files must adhere to the system's required format. Ensure your data is correctly formatted.
+                            </div>
+<!--                            show error data expetion sql (foreign key etc)-->
+                            <div th:if="${sqlError != null}" class="alert alert-danger">
+                                <p class="text-danger" th:if="${sqlError != null}" th:utext="${sqlError}"></p>
+                            </div>
+
+                            <form th:action="@{/csv/import}" method="post" enctype="multipart/form-data" class="mt-4">
+                                <div class="form-group row">
+                                    <label for="customercsv" class="col-md-3 col-form-label">Customer CSV File</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customercsv"
+                                                   name="customercsv"
+                                                   accept=".csv" required>
+                                            <label class="custom-file-label" for="customercsv">Choose file</label>
+                                        </div>
+                                        <p class="text-danger" th:if="${customerError != null}" th:utext="${customerError}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="ticketleadcsv" class="col-md-3 col-form-label">Ticket/Lead CSV File</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="ticketleadcsv"
+                                                   name="ticketleadcsv"
+                                                   accept=".csv" required>
+                                            <label class="custom-file-label" for="ticketleadcsv">Choose file</label>
+                                        </div>
+                                        <p class="text-danger" th:if="${ticketLeadError != null}" th:utext="${ticketLeadError}"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="budgetcsv" class="col-md-3 col-form-label">Budget CSV File</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="budgetCsv"
+                                                   name="budgetcsv"
+                                                   accept=".csv" required>
+                                            <label class="custom-file-label" for="budgetcsv">Choose file</label>
+                                        </div>
+                                        <p class="text-danger" th:if="${budgetError != null}" th:utext="${budgetError}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-9 offset-md-3">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-file-import mr-1"></i> Import Data
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{/general/footer.html}"></div>
+</div>
+
+<script th:src="@{/js/library/jquery-3.2.1.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/library/popper.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/library/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/library/perfect-scrollbar.jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/library/waves.js}" type="text/javascript"></script>
+<script th:src="@{/js/library/sidebarmenu.js}" type="text/javascript"></script>
+<script th:src="@{/js/library/custom.min.js}" type="text/javascript"></script>
+
+<script>
+    // Display the selected file name in the file input
+    $('.custom-file-input').on('change', function () {
+        var fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').html(fileName);
+    });
+</script>
+</body>
+
+</html>
