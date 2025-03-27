@@ -34,7 +34,10 @@ public class DatabaseCustomController {
 
         return "redirect:/database/generate?success=true";
     }
-
+    @GetMapping("/reset/view")
+    public String showResetView() {
+        return "data-modifier/reset/reset-data";
+    }
     @GetMapping("/reset")
     public String resetDatabase() {
         databaseCustomUtil.resetDatabase();

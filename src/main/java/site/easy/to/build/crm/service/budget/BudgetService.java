@@ -100,9 +100,10 @@ public class BudgetService {
         if (budgetDTO.getInitialAmount() - budgetDTO.getCurrentAmount() >= threshold) {
             budgetDTO.setStatus("Alerte budget au plafon " + parameter.getParameterValue() + " % \n " +
                     "Budget initial : " + budgetDTO.getInitialAmount() + "\n" +
-                    "Budget Actuel :  " + budgetDTO.getCurrentAmount() + "\n");
+                    "Budget Actuel :  " + budgetDTO.getCurrentAmount() + "\n" +
+                    "Utiliser : " + (budgetDTO.getInitialAmount() - budgetDTO.getCurrentAmount()) + "\n");
         } else {
-            budgetDTO.setStatus("Budget normal");
+            budgetDTO.setStatus("Budget normal total :"+ budgetDTO.getCurrentAmount());
         }
         return budgetDTO;
     }

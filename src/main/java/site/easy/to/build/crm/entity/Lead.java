@@ -14,7 +14,7 @@ public class Lead {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "lead_id")
-    private int leadId;
+    private Integer leadId;
 
     @Column(name = "name")
     @NotBlank(message = "Name is required")
@@ -93,7 +93,7 @@ public class Lead {
         return leadId;
     }
 
-    public void setLeadId(int leadId) {
+    public void setLeadId(Integer leadId) {
         this.leadId = leadId;
     }
 

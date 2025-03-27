@@ -13,7 +13,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ticket_id")
-    private int ticketId;
+    private Integer ticketId;
 
     @Column(name = "subject")
     @NotBlank(message = "Subject is required")
@@ -72,7 +72,7 @@ public class Ticket {
         return ticketId;
     }
 
-    public void setTicketId(int ticketId) {
+    public void setTicketId(Integer ticketId) {
         this.ticketId = ticketId;
     }
 

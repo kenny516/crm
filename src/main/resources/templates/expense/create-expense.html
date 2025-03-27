@@ -61,8 +61,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Add New Expense</h4>
-                                <div id="alertMessage" class="alert alert-warning" style="display: none;">
-                                    Attention : Ce budget est proche de sa limite !
+                                <div id="alertMessage" class="alert alert-info" style="display: block;" th:text="${budgetDTOGlobal.status}">
+
                                 </div>
                                 <form th:object="${expense}" th:action="@{/employee/expense/create}" method="post"
                                     id="expenseForm">
@@ -166,13 +166,14 @@
             const budgetSelect = document.getElementById('budget');
             const alertDiv = document.getElementById('alertMessage');
 
-            const status = document.getElementById('status').value;
 
+
+            const status = document.getElementById('status').value;
+            console.log(status);
             if (status && status.includes('Alerte budget')) {
                 alertDiv.innerText = status;
                 alertDiv.style.display = 'block';
-            } else {
-                alertDiv.style.display = 'none';
+                alertDiv.className = 'alert alert-warning';
             }
 
             document.getElementById('expenseForm').addEventListener('submit', function (e) {
