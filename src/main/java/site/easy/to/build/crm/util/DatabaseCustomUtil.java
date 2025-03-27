@@ -71,8 +71,6 @@ public class DatabaseCustomUtil {
     }
 
 
-    ////////////////// CSV IMPORTATION
-    ////////////////// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public List<CustomerLoginInfo> buildCustomer(List<CustomerDtoCsv> customerDtoCsvs, StringBuilder errorMessage) {
         User admin = userService.findFirst();
@@ -288,15 +286,7 @@ public class DatabaseCustomUtil {
         }
     }
 
-    ////////////////// GÉNÉRATION DE DONNÉES ALÉATOIRES
-    ////////////////// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    /**
-     * Génère des clients aléatoires avec Faker
-     *
-     * @param count Nombre de clients à générer
-     * @return Liste des CustomerLoginInfo générés
-     */
     public List<CustomerLoginInfo> generateRandomCustomers(int count) {
         User admin = userService.findFirst();
         List<CustomerLoginInfo> customersInfos = new ArrayList<>();
@@ -327,13 +317,6 @@ public class DatabaseCustomUtil {
         return customersInfos;
     }
 
-    /**
-     * Génère des budgets aléatoires pour les clients existants
-     *
-     * @param customers Liste des clients
-     * @param count     Nombre de budgets à générer par client
-     * @return Liste des budgets générés
-     */
     public List<Budget> generateRandomBudgets(List<Customer> customers, int count) {
         List<Budget> budgets = new ArrayList<>();
 
@@ -360,13 +343,6 @@ public class DatabaseCustomUtil {
         return budgets;
     }
 
-    /**
-     * Génère des tickets aléatoires pour les clients existants
-     *
-     * @param customers Liste des clients
-     * @param count     Nombre de tickets à générer par client
-     * @return Liste des tickets générés
-     */
     public List<Ticket> generateRandomTickets(List<Customer> customers, int count) {
         User admin = userService.findFirst();
         List<Ticket> tickets = new ArrayList<>();
@@ -400,13 +376,6 @@ public class DatabaseCustomUtil {
         return tickets;
     }
 
-    /**
-     * Génère des leads aléatoires pour les clients existants
-     *
-     * @param customers Liste des clients
-     * @param count     Nombre de leads à générer par client
-     * @return Liste des leads générés
-     */
     public List<Lead> generateRandomLeads(List<Customer> customers, int count) {
         User admin = userService.findFirst();
         List<Lead> leads = new ArrayList<>();
@@ -437,21 +406,10 @@ public class DatabaseCustomUtil {
         return leads;
     }
 
-    /**
-     * Génère et sauvegarde des données aléatoires pour le CRM
-     *
-     * @param customerCount     Nombre de clients à générer
-     * @param budgetPerCustomer Nombre de budgets par client
-     * @param ticketPerCustomer Nombre de tickets par client
-     * @param leadPerCustomer   Nombre de leads par client
-     * @return Map contenant les statistiques des données générées
-     * @throws SQLDataException si une erreur survient pendant la sauvegarde
-     */
     @Transactional(rollbackFor = SQLDataException.class)
     public Map<String, Integer> generateAndSaveRandomData(int customerCount, int budgetPerCustomer,
             int ticketPerCustomer, int leadPerCustomer) throws SQLDataException {
         try {
-            // 1. Générer et sauvegarder les clients
             List<CustomerLoginInfo> customerLoginInfos = generateRandomCustomers(customerCount);
             List<Customer> customers = new ArrayList<>();
 
@@ -460,28 +418,20 @@ public class DatabaseCustomUtil {
                 entityManager.persist(customerLoginInfo);
                 customers.add(customerLoginInfo.getCustomer());
             }
-
-            // 2. Générer et sauvegarder les budgets
             List<Budget> budgets = generateRandomBudgets(customers, budgetPerCustomer);
             for (Budget budget : budgets) {
                 entityManager.persist(budget);
             }
-
-            // 3. Générer et sauvegarder les tickets
             List<Ticket> tickets = generateRandomTickets(customers, ticketPerCustomer);
             for (Ticket ticket : tickets) {
                 entityManager.persist(ticket.getExpense());
                 entityManager.persist(ticket);
             }
-
-            // 4. Générer et sauvegarder les leads
             List<Lead> leads = generateRandomLeads(customers, leadPerCustomer);
             for (Lead lead : leads) {
                 entityManager.persist(lead.getExpense());
                 entityManager.persist(lead);
             }
-
-            // 5. Retourner des statistiques sur les données générées
             Map<String, Integer> stats = new HashMap<>();
             stats.put("customers", customers.size());
             stats.put("budgets", budgets.size());
@@ -500,7 +450,7 @@ public class DatabaseCustomUtil {
         User admin = userService.findFirst();
         Customer customer = customerService.findByCustomerId(customerId);
         CustomerLoginInfo customerLogin = customerLoginInfoService.findByEmail(customer.getEmail());
-        List<Budget> budgets = budgetService.findBudgetsByCustomerId(customerId);
+        //List<Budget> budgets = budgetService.findBudgetsByCustomerId(customerId);
         List<Lead> leads = leadService.findLeadsByCustomerId(customerId);
         List<Ticket> tickets = ticketService.findCustomerTickets(customerId);
 
@@ -516,11 +466,9 @@ public class DatabaseCustomUtil {
 
 
 
-
-
         ExportDTO exportDTO = new ExportDTO();
         exportDTO.setCustomerLoginInfo(customerLogin);
-        exportDTO.setBudgets(budgets);
+        //exportDTO.setBudgets(budgets);
         exportDTO.setLeads(leads);
         exportDTO.setTickets(tickets);
         return exportDTO;
@@ -532,15 +480,16 @@ public class DatabaseCustomUtil {
         CustomerLoginInfo customerLoginInfo =  exportDTO.getCustomerLoginInfo();
         entityManager.persist(customerLoginInfo);
 
-        List<Budget> budgets = exportDTO.getBudgets();
-        for (Budget budget : budgets) {
-            budget.setBudgetId(null);
-            budget.setCustomer(customerLoginInfo.getCustomer());
-            entityManager.persist(budget);
-        }
+//        List<Budget> budgets = exportDTO.getBudgets();
+//        for (Budget budget : budgets) {
+//            budget.setBudgetId(null);
+//            budget.setCustomer(customerLoginInfo.getCustomer());
+//            entityManager.persist(budget);
+//        }
         List<Lead> leads = exportDTO.getLeads();
         for (Lead lead : leads) {
             lead.setLeadId(null);
+
             lead.getExpense().setExpenseId(null);
             lead.setCustomer(customerLoginInfo.getCustomer());
             entityManager.persist(lead);

@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class ExportDTO {
     CustomerLoginInfo customerLoginInfo;
-    List<Budget> budgets;
+    //List<Budget> budgets;
     List<Ticket> tickets;
     List<Lead> leads;
 }
